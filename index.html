@@ -187,12 +187,118 @@
       #why .snapshot-card__num { font-size: 22px; }
       #why .snapshot-card h3 { font-size: 16px; line-height: 1.3; }
       #why .snapshot-card p { font-size: 13px; line-height: 1.55; }
-      #why .snapshot-card .link-arrow { font-size: 12px; }
+      #why .snapshot-card__cue { font-size: 12px; }
     }
     @media (min-width: 1024px) and (max-width: 1180px) {
       #why .snapshot-card p { font-size: 12.5px; }
       #why .snapshot-card h3 { font-size: 15px; }
     }
+
+    /* ============ WHY FELIX: whole-box link + red hover ============ */
+    a.snapshot-card {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .snapshot-card__cue {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: var(--color-crimson);
+      transition: gap var(--transition), color var(--transition);
+    }
+
+    a.snapshot-card:hover {
+      background: var(--color-crimson);
+      border-color: var(--color-crimson);
+      border-top-color: var(--color-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 38px rgba(94, 20, 20, .32);
+    }
+
+    a.snapshot-card:hover .snapshot-card__num { color: var(--color-gold-pale); opacity: .9; }
+    a.snapshot-card:hover h3 { color: var(--color-paper); }
+    a.snapshot-card:hover p { color: rgba(247, 243, 236, .82); }
+    a.snapshot-card:hover .snapshot-card__cue { color: var(--color-gold-pale); gap: 10px; }
+
+    /* ============ EXPLORE LINK (text-only button + bouncing arrow) ============ */
+    .explore-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--space-5);
+    }
+
+    .explore-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-ui);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--color-crimson);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 4px;
+      transition: color var(--transition), transform var(--transition);
+    }
+
+    .explore-link:hover { color: var(--color-crimson-deep); transform: translateY(2px); }
+
+    .explore-link__arrow {
+      font-size: 22px;
+      line-height: 1;
+      animation: exploreBounce 1.8s var(--ease-out) infinite;
+    }
+
+    @keyframes exploreBounce {
+      0%, 100% { transform: translateY(0); opacity: .65; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    .explore-wrap.is-hidden {
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity .4s ease, transform .4s ease;
+    }
+
+    /* ============ GATE: locked lower sections + assemble reveal ============ */
+    .gate.is-locked { display: none; }
+    body.gate-locked .site-footer { display: none; }
+
+    @keyframes assembleIn {
+      0% { opacity: 0; transform: translateY(54px) scale(.985); filter: blur(7px); }
+      60% { filter: blur(0); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    .gate.is-assembling > * {
+      animation: assembleIn .85s var(--ease-out) backwards;
+    }
+    .gate.is-assembling > *:nth-child(1) { animation-delay: .00s; }
+    .gate.is-assembling > *:nth-child(2) { animation-delay: .09s; }
+    .gate.is-assembling > *:nth-child(3) { animation-delay: .18s; }
+    .gate.is-assembling > *:nth-child(4) { animation-delay: .27s; }
+    .gate.is-assembling > *:nth-child(5) { animation-delay: .36s; }
+    .gate.is-assembling > *:nth-child(6) { animation-delay: .45s; }
+    .gate.is-assembling > *:nth-child(7) { animation-delay: .54s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gate.is-assembling > * { animation: none; }
+      .explore-link__arrow { animation: none; }
+    }
+
+    .section-head--eyebrow-only { margin-bottom: var(--space-3); }
 
     /* ============ QNH FEATURED ADDITIONS ============ */
     .qnh-disclaimer {
@@ -404,39 +510,46 @@
 <h2 id="why-title">Bốn năng lực cốt lõi của Felix</h2>
 </div>
 <div class="snapshot-grid">
-<article class="snapshot-card reveal">
+<a class="snapshot-card gate-trigger reveal" href="#case-study">
 <div class="snapshot-card__num">01</div>
 <h3>Phát triển concept dẫn dắt bởi research</h3>
 <p>Felix phát triển mọi ý tưởng bắt đầu từ research, giúp đưa ra những hướng thực thi align đúng với thị hiếu của target audience và performance thực tế trên thị trường.</p>
-<a class="link-arrow" href="#case-study">Xem case study Quán Nhà Haha →</a>
-</article>
-<article class="snapshot-card reveal">
+<span class="snapshot-card__cue">Xem case study Quán Nhà Haha →</span>
+</a>
+<a class="snapshot-card gate-trigger reveal" href="#pillar-1">
 <div class="snapshot-card__num">02</div>
 <h3>Biên kịch đa định dạng</h3>
 <p>TVC 30 giây cho 4 brand, phim ngắn đoạt Giải Nhất, podcast longform 40+ phút, treatment unscripted cho gameshow đang phát sóng. Felix có khả năng thích ứng nhanh với mọi loại hình format.</p>
-<a class="link-arrow" href="#pillar-1">Xem biên kịch đa định dạng →</a>
-</article>
-<article class="snapshot-card reveal">
+<span class="snapshot-card__cue">Xem biên kịch đa định dạng →</span>
+</a>
+<a class="snapshot-card gate-trigger reveal" href="#pillar-2">
 <div class="snapshot-card__num">03</div>
 <h3>Tích hợp sponsor với narrative logic</h3>
 <p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành <strong>một nhân vật riêng gắn kết với script</strong>.</p>
-<a class="link-arrow" href="#pillar-2">Xem brand storytelling →</a>
-</article>
-<article class="snapshot-card reveal">
+<span class="snapshot-card__cue">Xem brand storytelling →</span>
+</a>
+<a class="snapshot-card gate-trigger reveal" href="#pillar-4">
 <div class="snapshot-card__num">04</div>
 <h3>Kinh nghiệm production, điều phối sản xuất</h3>
 <p>2 campaign on-set (VinFast, TH true Milk), full production cycle cho chuỗi Reels VinFast VF5 × Kim Joo Yung, 7 sự kiện 50 đến 400 người tại MBE, và là Trưởng BTC của Triển lãm Nghệ thuật tương tác tại ĐH RMIT.</p>
-<a class="link-arrow" href="#pillar-4">Xem kinh nghiệm sản xuất →</a>
-</article>
+<span class="snapshot-card__cue">Xem kinh nghiệm sản xuất →</span>
+</a>
+</div>
+<div class="explore-wrap reveal" id="explore-wrap">
+<a class="explore-link gate-trigger" href="#case-study">
+          Khám phá hồ sơ năng lực
+          <span class="explore-link__arrow" aria-hidden="true">↓</span>
+</a>
 </div>
 </div>
 </section>
+<!-- ============== GATED LOWER SECTIONS ============== -->
+<div class="gate is-locked" id="gate">
 <!-- ============== FEATURED CASE STUDY ============== -->
-<section aria-labelledby="case-title" class="section section--alt" id="case-study">
+<section aria-label="Case study" class="section section--alt" id="case-study">
 <div class="container">
-<div class="section-head reveal">
+<div class="section-head section-head--eyebrow-only reveal">
 <span class="eyebrow">DỰ ÁN ĐỀ XUẤT · SPECULATIVE CASE STUDY</span>
-<h2 id="case-title">Case study</h2>
 </div>
 <article class="proof-card proof-card--featured reveal">
 <div class="proof-card__media">
@@ -828,7 +941,10 @@
 </div>
 </div>
 </section>
+</div>
+<!-- /gate -->
 </main>
+<noscript><style>.gate.is-locked{display:block !important;}.explore-wrap{display:none !important;}</style></noscript>
 <footer class="site-footer">
 <div class="container">
       Felix Phan · Portfolio 2026 · Updated June 2026

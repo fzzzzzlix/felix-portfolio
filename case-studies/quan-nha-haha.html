@@ -505,6 +505,14 @@ strong{font-weight:600;color:var(--ink)}
   }, { passive: true });
   updateScroll();
 
+  // Auto-tag section headings + intro paragraphs so reveal applies page-wide.
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.querySelectorAll(':scope > .s-marker, :scope > h2, :scope > p').forEach((el, i) => {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * 70) + 'ms';
+    });
+  });
+
   // Reveal-on-scroll
   const revealables = document.querySelectorAll('.reveal');
   if (revealables.length && 'IntersectionObserver' in window && !reduceMotion) {

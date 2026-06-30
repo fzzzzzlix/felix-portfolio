@@ -14,20 +14,59 @@
     });
   }
 
-  /* ---------- Smooth scroll + close mobile nav on click ---------- */
+  /* ---------- Gate: locked lower sections + assemble reveal ---------- */
+  const gate = document.getElementById('gate');
+  const exploreWrap = document.getElementById('explore-wrap');
+  let assembleTimer = null;
+
+  if (gate && gate.classList.contains('is-locked')) {
+    document.body.classList.add('gate-locked');
+  }
+
+  function unlockGate() {
+    if (!gate || !gate.classList.contains('is-locked')) return false;
+    gate.classList.remove('is-locked');
+    document.body.classList.remove('gate-locked');
+    if (exploreWrap) {
+      exploreWrap.classList.add('is-hidden');
+      setTimeout(() => { exploreWrap.style.display = 'none'; }, 420);
+    }
+
+    if (!prefersReducedMotion) {
+      gate.classList.add('is-assembling');
+      clearTimeout(assembleTimer);
+      assembleTimer = setTimeout(() => gate.classList.remove('is-assembling'), 1500);
+    }
+    return true;
+  }
+
+  /* ---------- Smooth scroll + gate unlock + close mobile nav on click ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', event => {
       const href = link.getAttribute('href');
       if (!href || href === '#') return;
       const target = document.querySelector(href);
-      if (target) {
-        event.preventDefault();
-        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      if (!target) return;
 
-        if (navLinks && navLinks.classList.contains('is-open')) {
-          navLinks.classList.remove('is-open');
-          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-        }
+      event.preventDefault();
+
+      // If the target lives inside the locked gate, reveal it first so layout exists.
+      const justUnlocked = gate && gate.contains(target) ? unlockGate() : false;
+
+      const doScroll = () => {
+        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      };
+
+      // Let the gate paint its first assemble frame before scrolling.
+      if (justUnlocked && !prefersReducedMotion) {
+        requestAnimationFrame(() => requestAnimationFrame(doScroll));
+      } else {
+        doScroll();
+      }
+
+      if (navLinks && navLinks.classList.contains('is-open')) {
+        navLinks.classList.remove('is-open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
