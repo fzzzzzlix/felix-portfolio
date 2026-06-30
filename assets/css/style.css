@@ -582,6 +582,21 @@ a:hover { color: var(--color-crimson-deep); }
   background: var(--color-paper-deep);
   overflow: hidden;
   border-bottom: var(--border-thin);
+  cursor: pointer;
+}
+
+.proof-card__cover-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  z-index: 3;
+  text-decoration: none;
+  background: transparent;
+}
+
+.proof-card__cover-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: -4px;
 }
 
 .proof-card__media::after {

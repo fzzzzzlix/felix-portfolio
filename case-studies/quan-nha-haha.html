@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bếp Nhà Haha Gặp Bếp Cung Đình — Speculative Episode Treatment · Felix Phan</title>
+<title>Felix Phan - Bếp Nhà Haha Gặp Bếp Cung Đình</title>
 <meta name="description" content="Speculative episode treatment cho Quán Nhà Haha tại Huế. Case study cá nhân của Felix Phan: research, situation design, cast function map, sponsor arc.">
 <meta name="author" content="Felix Phan">
 <meta name="theme-color" content="#7a1c1c">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -40,14 +41,17 @@ body{background:var(--paper);color:var(--ink-soft);font-family:'Inter',sans-seri
 /* COVER */
 .cover{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:60px;position:relative;overflow:hidden}
 .cover-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 80%,rgba(184,146,42,.13) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 20%,rgba(42,74,90,.25) 0%,transparent 60%)}
-.cover-stamp{position:absolute;top:50px;right:60px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,243,236,.18);writing-mode:vertical-rl}
+.cover-img{position:absolute;top:0;right:0;bottom:0;width:45%;background-size:cover;background-position:center;opacity:.45;mix-blend-mode:luminosity;filter:contrast(1.05) saturate(.9)}
+.cover-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,transparent 35%,transparent 70%,rgba(26,20,16,.55) 100%)}
+@media(max-width:768px){.cover-img{width:100%;opacity:.22}}
+.cover-stamp{position:absolute;top:50px;right:60px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,243,236,.32);writing-mode:vertical-rl;z-index:2}
 .cover-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;position:relative}
 .cover-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:600;color:var(--paper);line-height:1.0;letter-spacing:-1.5px;position:relative;margin-bottom:8px}
 .cover-title em{color:var(--gold);font-style:italic}
 .cover-sub{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.28);margin-bottom:48px;position:relative}
 .cover-rule{width:64px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:32px;position:relative}
 .cover-premise{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;font-weight:400;color:rgba(247,243,236,.72);max-width:600px;line-height:1.5;position:relative}
-.cover-meta{position:absolute;bottom:50px;right:60px;text-align:right;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.18);line-height:2.2}
+.cover-meta{position:absolute;bottom:50px;right:60px;text-align:right;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.32);line-height:2.2;z-index:2}
 
 /* NAV */
 .sidenav{position:fixed;top:50%;left:24px;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
@@ -163,6 +167,7 @@ strong{font-weight:600;color:var(--ink)}
 <!-- COVER -->
 <section class="cover">
   <div class="cover-bg"></div>
+  <div class="cover-img" style="background-image:url('../images/qnh-Treatment.jpg')" aria-hidden="true"></div>
   <div class="cover-stamp">Speculative Episode Treatment · Personal Case Study · 2026</div>
   <div class="cover-eyebrow">Quán Nhà Haha – Tập Đặc Biệt Huế</div>
   <div class="cover-title">Bếp Nhà Haha<br>Gặp Bếp<br><em>Cung Đình</em></div>

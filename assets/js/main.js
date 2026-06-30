@@ -122,6 +122,25 @@
     revealables.forEach(el => el.classList.add('is-visible'));
   }
 
+  /* ---------- Make proof-card images clickable ---------- */
+  document.querySelectorAll('.proof-card').forEach(card => {
+    const media = card.querySelector('.proof-card__media');
+    if (!media || media.querySelector('a')) return;
+    const primary =
+      card.querySelector('.proof-card__footer a') ||
+      card.querySelector('a.link-arrow') ||
+      card.querySelector('a.button');
+    if (!primary || !primary.href) return;
+    const link = document.createElement('a');
+    link.href = primary.href;
+    if (primary.target) link.target = primary.target;
+    if (primary.rel) link.rel = primary.rel;
+    link.className = 'proof-card__cover-link';
+    link.setAttribute('aria-label', (primary.textContent || 'Mở dự án').trim().replace(/[→↗]/g, '').trim());
+    link.setAttribute('tabindex', '-1');
+    media.appendChild(link);
+  });
+
   /* ---------- Animated counters ---------- */
   const counters = document.querySelectorAll('[data-counter]');
   if (counters.length && 'IntersectionObserver' in window && !prefersReducedMotion) {
