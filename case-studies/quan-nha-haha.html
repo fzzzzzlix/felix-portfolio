@@ -7,23 +7,42 @@
 <meta name="description" content="Speculative episode treatment cho Quán Nhà Haha tại Huế. Case study cá nhân của Felix Phan: research, situation design, cast function map, sponsor arc.">
 <meta name="author" content="Felix Phan">
 <meta name="theme-color" content="#7a1c1c">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;1,14..32,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#1a1410;--paper:#f7f3ec;--smoke:#ede8df;
-  --gold:#b8922a;--gold-pale:#e8d9b0;--red:#8b1f1f;
-  --muted:#7a6e60;--border:#d8cdb8;--river:#2a4a5a;
+  --ink:#1a1410;--ink-soft:#38302a;--paper:#f7f3ec;--paper-warm:#fdfaf4;--smoke:#ede8df;
+  --gold:#b8922a;--gold-pale:#e8d9b0;--gold-deep:#8a7a4a;
+  --red:#7a1c1c;--red-deep:#5e1414;
+  --muted:#6b5f51;--border:#d8cdb8;--border-soft:#e8e2d2;--river:#2a4a5a;
+  --ease-out:cubic-bezier(.22,.61,.36,1);
+  --transition:240ms var(--ease-out);
 }
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:15px;line-height:1.75}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0ms!important;transition-duration:0ms!important}
+}
+body{background:var(--paper);color:var(--ink-soft);font-family:'Inter',sans-serif;font-weight:400;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:var(--paper)}
+*:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* SCROLL PROGRESS + BACK TO TOP */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--red),var(--gold));z-index:999;transition:width 80ms linear;pointer-events:none}
+.back-to-top{position:fixed;right:24px;bottom:24px;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:var(--ink);color:var(--gold);font-family:'Inter',sans-serif;font-size:18px;font-weight:700;cursor:pointer;z-index:800;opacity:0;transform:translateY(20px);pointer-events:none;transition:opacity var(--transition),transform var(--transition),background var(--transition),color var(--transition);box-shadow:0 8px 22px rgba(26,20,16,.25)}
+.back-to-top.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-top:hover{background:var(--gold);color:var(--ink)}
+
+/* REVEAL ON SCROLL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 700ms var(--ease-out),transform 700ms var(--ease-out);will-change:opacity,transform}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
 
 /* COVER */
 .cover{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:60px;position:relative;overflow:hidden}
 .cover-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 80%,rgba(184,146,42,.13) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 20%,rgba(42,74,90,.25) 0%,transparent 60%)}
 .cover-stamp{position:absolute;top:50px;right:60px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,243,236,.18);writing-mode:vertical-rl}
 .cover-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;position:relative}
-.cover-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:400;color:#f7f3ec;line-height:1.0;letter-spacing:-1px;position:relative;margin-bottom:8px}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:600;color:var(--paper);line-height:1.0;letter-spacing:-1.5px;position:relative;margin-bottom:8px}
 .cover-title em{color:var(--gold);font-style:italic}
 .cover-sub{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.28);margin-bottom:48px;position:relative}
 .cover-rule{width:64px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:32px;position:relative}
@@ -42,11 +61,11 @@ body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;fon
 .section+.section{border-top:1px solid var(--border)}
 .s-marker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .s-marker::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold-pale),transparent);max-width:120px}
-h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.15;margin-bottom:32px;letter-spacing:-.3px}
-h2 em{color:var(--red);font-style:italic}
-h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:-.2px}
-p{margin-bottom:18px;color:#38302a}p:last-child{margin-bottom:0}
-strong{font-weight:500;color:var(--ink)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:600;line-height:1.15;margin-bottom:32px;letter-spacing:-.5px;color:var(--ink)}
+h2 em{color:var(--red);font-style:italic;font-weight:600}
+h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:-.2px;color:var(--ink)}
+p{margin-bottom:18px;color:var(--ink-soft);line-height:1.8}p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--ink)}
 
 /* CONCEPT */
 .concept-box{background:var(--ink);padding:48px 52px;margin:40px 0;position:relative;overflow:hidden}
@@ -55,8 +74,9 @@ strong{font-weight:500;color:var(--ink)}
 .concept-note{font-size:13px;color:rgba(247,243,236,.42);line-height:1.8;position:relative}
 
 /* ACTS */
-.acts-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:40px 0}
-.act-col{background:var(--paper);padding:32px 28px}
+.acts-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:40px 0;border:1px solid var(--border)}
+.act-col{background:var(--paper-warm);padding:32px 28px;transition:background var(--transition),transform var(--transition);position:relative}
+.act-col:hover{background:var(--paper);transform:translateY(-2px);z-index:1;box-shadow:0 12px 28px rgba(26,20,16,.08)}
 .act-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:400;color:var(--gold-pale);line-height:1;margin-bottom:8px}
 .act-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .act-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;margin-bottom:14px}
@@ -89,26 +109,29 @@ strong{font-weight:500;color:var(--ink)}
 
 /* VCB */
 .vcb-steps{position:relative;margin:40px 0}
-.vcb-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:var(--border)}
-.vcb-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:40px;align-items:start}
+.vcb-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--border),var(--gold-pale),var(--border))}
+.vcb-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:36px;align-items:start;transition:transform var(--transition)}
 .vcb-step:last-child{margin-bottom:0}
-.vcb-dot{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--gold);position:relative;z-index:1;flex-shrink:0}
+.vcb-step:hover{transform:translateX(4px)}
+.vcb-step:hover .vcb-dot{background:var(--gold);color:var(--paper);border-color:var(--gold)}
+.vcb-dot{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold);position:relative;z-index:1;flex-shrink:0;transition:background var(--transition),color var(--transition)}
 .vcb-content{padding-top:6px}
-.vcb-title{font-weight:500;font-size:15px;color:var(--ink);margin-bottom:8px}
-.vcb-desc{font-size:13.5px;color:#4a4035;line-height:1.75}
-.vcb-desc em{font-style:italic;color:var(--river)}
+.vcb-title{font-weight:600;font-size:15px;color:var(--ink);margin-bottom:8px;font-family:'Playfair Display',serif}
+.vcb-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.8}
+.vcb-desc em{font-style:italic;color:var(--river);font-weight:500}
 
 /* CALLOUT */
-.callout{border:1px solid var(--red);padding:32px 40px;margin:40px 0;position:relative}
-.callout-label{position:absolute;top:-10px;left:28px;background:var(--paper);padding:0 10px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:500}
-.callout-text{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-style:italic;color:var(--red);line-height:1.6}
+.callout{border:1px solid var(--red);padding:32px 40px;margin:40px 0;position:relative;background:rgba(122,28,28,.03)}
+.callout-label{position:absolute;top:-10px;left:28px;background:var(--paper);padding:0 10px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:700}
+.callout-text{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-style:italic;color:var(--red);line-height:1.55;font-weight:500}
 
 /* AMBASSADOR */
-.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:32px 0}
-.amb-card{background:var(--paper);padding:28px 24px}
-.amb-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:var(--gold-pale);line-height:1;margin-bottom:8px}
-.amb-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;color:var(--ink)}
-.amb-desc{font-size:13px;color:#5a4e42;line-height:1.7}
+.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:32px 0;border:1px solid var(--border)}
+.amb-card{background:var(--paper-warm);padding:28px 24px;transition:background var(--transition),transform var(--transition);position:relative}
+.amb-card:hover{background:var(--paper);transform:translateY(-2px);z-index:1;box-shadow:0 12px 28px rgba(26,20,16,.08)}
+.amb-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:600;color:var(--gold);opacity:.55;line-height:1;margin-bottom:8px}
+.amb-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;margin-bottom:12px;color:var(--red)}
+.amb-desc{font-size:13px;color:var(--ink-soft);line-height:1.7}
 @media(max-width:700px){.amb-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.amb-grid{grid-template-columns:1fr}}
 
@@ -116,11 +139,11 @@ strong{font-weight:500;color:var(--ink)}
 .note{border-left:2px solid var(--gold);padding:16px 20px;background:rgba(184,146,42,.05);font-size:13px;color:#5a4e42;line-height:1.75;margin:28px 0;font-style:italic}
 
 /* CLOSING */
-.closing{margin-top:40px;padding:32px 36px;background:var(--smoke);border-left:3px solid var(--gold)}
-.closing-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:14px}
-.closing-text{font-size:14px;color:#38302a;line-height:1.8;margin-bottom:24px}
-.closing-back{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font-size:12px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;text-decoration:none;transition:all .25s}
-.closing-back:hover{background:var(--paper);color:var(--ink)}
+.closing{margin-top:48px;padding:36px 40px;background:var(--smoke);border-left:4px solid var(--gold);border-radius:0 4px 4px 0}
+.closing-label{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:16px}
+.closing-text{font-size:14.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:28px;font-family:'Inter',sans-serif}
+.closing-back{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:background var(--transition),color var(--transition),transform var(--transition),box-shadow var(--transition)}
+.closing-back:hover{background:var(--paper);color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,20,16,.15)}
 
 /* FOOTER */
 .doc-footer{background:var(--ink);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.2)}
@@ -174,7 +197,7 @@ strong{font-weight:500;color:var(--ink)}
   <p>Tập diễn ra trong một ngày duy nhất, từ sáng sớm đến đêm khuya. Cấu trúc ba hồi. VCB product placement rơi vào giao điểm giữa Hồi 2 và Hồi 3.</p>
 
   <div class="acts-row">
-    <div class="act-col">
+    <div class="act-col reveal">
       <div class="act-num">I</div>
       <div class="act-label">Sáng · Học</div>
       <div class="act-title">Giới thiệu &amp; Culture Shock</div>
@@ -187,7 +210,7 @@ strong{font-weight:500;color:var(--ink)}
         <li>BCN × nghệ nhân: câu chuyện bông cài tiền được kể lần đầu</li>
       </ul>
     </div>
-    <div class="act-col">
+    <div class="act-col reveal">
       <div class="act-num">II</div>
       <div class="act-label">Chiều · Chuẩn Bị</div>
       <div class="act-title">Khâu Chuẩn bị</div>
@@ -200,7 +223,7 @@ strong{font-weight:500;color:var(--ink)}
         <li>Duy Khánh viết lời dẫn buổi tối từ trí nhớ, không có script</li>
       </ul>
     </div>
-    <div class="act-col">
+    <div class="act-col reveal">
       <div class="act-num">III</div>
       <div class="act-label">Tối · Biểu Diễn</div>
       <div class="act-title">Đón tiếp và Trình diễn</div>
@@ -224,7 +247,7 @@ strong{font-weight:500;color:var(--ink)}
   <h2>Năm người,<br><em>năm cách chạm một di sản</em></h2>
 
   <div class="cast-list">
-    <div class="cast-item">
+    <div class="cast-item reveal">
       <div class="cast-left">
         <div class="cast-role">Bếp Chính · Linh Hồn Dẫn Dắt</div>
         <div class="cast-name">Jun Phạm</div>
@@ -236,7 +259,7 @@ strong{font-weight:500;color:var(--ink)}
       </div>
     </div>
 
-    <div class="cast-item">
+    <div class="cast-item reveal">
       <div class="cast-left">
         <div class="cast-role">Bếp Chính · Cảm Nhận Mộc Mạc</div>
         <div class="cast-name">Ngọc Thanh Tâm</div>
@@ -248,7 +271,7 @@ strong{font-weight:500;color:var(--ink)}
       </div>
     </div>
 
-    <div class="cast-item">
+    <div class="cast-item reveal">
       <div class="cast-left">
         <div class="cast-role">Nhạc Công Triết Học</div>
         <div class="cast-name">Rhymastic</div>
@@ -260,7 +283,7 @@ strong{font-weight:500;color:var(--ink)}
       </div>
     </div>
 
-    <div class="cast-item">
+    <div class="cast-item reveal">
       <div class="cast-left">
         <div class="cast-role">Nhịp Tim Cảm Xúc</div>
         <div class="cast-name">Bùi Công Nam</div>
@@ -272,7 +295,7 @@ strong{font-weight:500;color:var(--ink)}
       </div>
     </div>
 
-    <div class="cast-item cast-dark">
+    <div class="cast-item cast-dark reveal">
       <div class="cast-left">
         <div class="cast-role">MC Chính · Người Dẫn Thuyền Rồng</div>
         <div class="cast-name">Duy Khánh</div>
@@ -293,42 +316,42 @@ strong{font-weight:500;color:var(--ink)}
 
   <div class="vcb-steps">
     <div class="vcb-line"></div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">1</div>
       <div class="vcb-content">
         <div class="vcb-title">Nút thắt thực tế (đặt trước khi lên thuyền)</div>
         <div class="vcb-desc">Dàn cast đi chợ sáng: khu chợ không nhận chuyển khoản, dàn cast không mang tiền mặt, tạo situation trớ trêu: dàn cast loay hoay chạy đi xin đổi tiền. Tình huống sẽ gieo hạt cho câu hỏi lớn hơn: khi cả xã hội đã quen cashless, điều gì xảy ra với những nghi thức cần tiền mặt?</div>
       </div>
     </div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">2</div>
       <div class="vcb-content">
         <div class="vcb-title">Khám phá truyền thống</div>
         <div class="vcb-desc">BCN ngồi với nghệ nhân, nghe câu chuyện về hoa cài tiền trong lịch sử biểu diễn trên sông Hương. Không phải "đây là cách tip" – mà là "đây là cách khán giả nói lên tiếng lòng." Trao cho truyền thống phẩm giá đúng với giá trị của nó.</div>
       </div>
     </div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">3</div>
       <div class="vcb-content">
         <div class="vcb-title">Dàn cast đặt vấn đề</div>
         <div class="vcb-desc">Sau khi nghe về hoa cài tiền và trải qua situation chợ buổi sáng, cast tự đặt câu hỏi: "làm sao để khi người ta muốn cài hoa, họ vẫn làm được dù không có tiền mặt?".</div>
       </div>
     </div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">4</div>
       <div class="vcb-content">
         <div class="vcb-title">Giới thiệu giải pháp: "Hoa vật lý, giao dịch số"</div>
         <div class="vcb-desc">Dàn cast thiết kế: hoa thật có tag in QR VCB DigiBank. Người muốn tặng lấy hoa → scan QR → tip số. Hành động vật lý – cầm hoa, trao hoa – được bảo toàn hoàn toàn. Chỉ có giao dịch là số hóa.</div>
       </div>
     </div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">5</div>
       <div class="vcb-content">
         <div class="vcb-title">Phát triển thêm từ truyền thống: Souvenir hai chiều</div>
         <div class="vcb-desc">Sau khi banking khán giả có thể giữ lại tag. Dàn cast chuẩn bị những chiếc tag có hình hoa hồng hoặc biểu tượng liên quan đến Huế, ghi những câu hay về nhã nhạc hay sông Hương. Sau khi tip khán giả có thể mang về nhà một mảnh ký ức Huế. Nghệ nhân nhận tri ân, người xem nhận kỷ vật → tạo nên trao đổi văn hóa hai chiều.</div>
       </div>
     </div>
-    <div class="vcb-step">
+    <div class="vcb-step reveal">
       <div class="vcb-dot">6</div>
       <div class="vcb-content">
         <div class="vcb-title">Landing cảm xúc</div>
@@ -352,24 +375,24 @@ strong{font-weight:500;color:var(--ink)}
   <p>Vì Đại Sứ được tuyển qua chương trình VCB, khi họ dùng VCB DigiBank để cài hoa, tạo nên product placement trong vòng khép kín.</p>
 
   <div class="amb-grid">
-    <div class="amb-card">
+    <div class="amb-card reveal">
       <div class="amb-num">01</div>
       <div class="amb-title">Quan Khách Nghi Thức</div>
       <div class="amb-desc">Được phục vụ như thượng khách cung đình. Cast phục vụ, Đại Sứ thưởng thức. Đảo ngược vai trò quen thuộc của S1.</div>
     </div>
-    <div class="amb-card">
+    <div class="amb-card reveal">
       <div class="amb-num">02</div>
       <div class="amb-title">Ban Thẩm Vị Ẩm Thực</div>
       <div class="amb-desc">Nhận xét chân thật về món Huế của cast – dù ngon hay dở thì chân thật chính là DNA của show.</div>
     </div>
-    <div class="amb-card">
+    <div class="amb-card reveal">
       <div class="amb-num">03</div>
       <div class="amb-title">Người Khai Trương Hoa QR</div>
       <div class="amb-desc">Người đầu tiên scan QR hoa cài tiền và nhận rose card souvenir – họ là người mở đầu một nghi thức mới. Cần trao moment đó một cách trang trọng.</div>
     </div>
   </div>
 
-  <div class="closing">
+  <div class="closing reveal">
     <div class="closing-label">Closing</div>
     <p class="closing-text">Đây là một speculative treatment, không phải sản phẩm chính thức của Yeah1 hoặc VCB DigiBank. Tôi xây nó như một case study cá nhân để chứng minh cách phát triển một episode từ research, tension, cast function, sponsor arc, đến short-form outputs.</p>
     <a href="../index.html" class="closing-back">← Quay lại Portfolio</a>
@@ -383,18 +406,71 @@ strong{font-weight:500;color:var(--ink)}
 </footer>
 
 <script>
-const sections=document.querySelectorAll('section[id]');
-const dots=document.querySelectorAll('.sidenav a');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      dots.forEach(d=>d.classList.remove('active'));
-      const a=document.querySelector(`.sidenav a[href="#${e.target.id}"]`);
-      if(a)a.classList.add('active');
-    }
+(function(){
+  'use strict';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Sidenav scroll-spy
+  const sections = document.querySelectorAll('section[id]');
+  const dots = document.querySelectorAll('.sidenav a');
+  if (sections.length && dots.length && 'IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          dots.forEach(d => d.classList.remove('active'));
+          const a = document.querySelector(`.sidenav a[href="#${e.target.id}"]`);
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { threshold: .4 });
+    sections.forEach(s => spy.observe(s));
+  }
+
+  // Scroll progress + back-to-top
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.prepend(progress);
+
+  const backTop = document.createElement('button');
+  backTop.type = 'button';
+  backTop.className = 'back-to-top';
+  backTop.setAttribute('aria-label', 'Lên đầu trang');
+  backTop.innerHTML = '↑';
+  document.body.appendChild(backTop);
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
-},{threshold:.4});
-sections.forEach(s=>obs.observe(s));
+
+  let ticking = false;
+  function updateScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+    progress.style.width = pct + '%';
+    backTop.classList.toggle('is-visible', window.scrollY > 600);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; }
+  }, { passive: true });
+  updateScroll();
+
+  // Reveal-on-scroll
+  const revealables = document.querySelectorAll('.reveal');
+  if (revealables.length && 'IntersectionObserver' in window && !reduceMotion) {
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    revealables.forEach(el => revealObs.observe(el));
+  } else {
+    revealables.forEach(el => el.classList.add('is-visible'));
+  }
+})();
 </script>
 </body>
 </html>

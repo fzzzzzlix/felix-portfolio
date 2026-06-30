@@ -14,7 +14,7 @@
 <meta content="images/hero-portrait.jpg" property="og:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="assets/css/style.css" rel="stylesheet"/>
 <style>
     /* Hero format adapted from uploaded reference index(1).html. Kept inside index so this working file can be reviewed independently. */
@@ -27,13 +27,23 @@
     .hero--cover {
       min-height: 100vh;
       position: relative;
-      background: #181818;
-      color: #fff;
+      background: var(--color-ink);
+      color: var(--color-paper);
       display: flex;
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
       padding: 0;
+    }
+
+    .hero--cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 78% 22%, rgba(122, 28, 28, .42), transparent 38%),
+        linear-gradient(155deg, rgba(94, 20, 20, .55) 0%, transparent 62%);
+      pointer-events: none;
     }
 
     .hero-cover__accent {
@@ -42,8 +52,8 @@
       right: 0;
       width: 42%;
       height: 100%;
-      background: linear-gradient(155deg, #4a1212 0%, transparent 65%);
-      opacity: .55;
+      background: linear-gradient(155deg, var(--color-crimson-deep) 0%, transparent 65%);
+      opacity: .35;
       pointer-events: none;
     }
 
@@ -53,7 +63,7 @@
       right: 48px;
       width: 180px;
       height: 180px;
-      background-image: radial-gradient(circle, rgba(201, 169, 110, .18) 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(184, 146, 42, .22) 1px, transparent 1px);
       background-size: 18px 18px;
       pointer-events: none;
     }
@@ -72,94 +82,102 @@
     }
 
     .hero-cover__kicker {
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 11px;
-      letter-spacing: 3.5px;
+      letter-spacing: .32em;
       text-transform: uppercase;
       font-weight: 700;
-      color: #c9a96e;
+      color: var(--color-gold);
       margin: 0 0 28px;
     }
 
     .hero-cover__name {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-family: var(--font-display);
       font-size: clamp(72px, 10vw, 124px);
       font-weight: 700;
       line-height: .92;
-      color: #fff;
+      color: var(--color-paper);
       margin: 0;
       letter-spacing: -0.035em;
     }
 
     .hero-cover__name .outline {
-      -webkit-text-stroke: 1px rgba(255, 255, 255, .28);
+      -webkit-text-stroke: 1px rgba(247, 243, 236, .28);
       color: transparent;
       display: block;
     }
 
     .hero-cover__role {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-family: var(--font-display);
       font-size: clamp(24px, 3vw, 36px);
       font-weight: 600;
-      color: #c9a96e;
+      color: var(--color-gold);
       margin: 24px 0 4px;
     }
 
     .hero-cover__role-en {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-family: var(--font-display);
       font-size: clamp(18px, 2.2vw, 26px);
       font-style: italic;
-      color: rgba(255, 255, 255, .76);
+      color: rgba(247, 243, 236, .76);
       margin: 0;
     }
 
     .hero-cover__lanes {
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 13px;
-      letter-spacing: .09em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: rgba(201, 169, 110, .78);
+      color: rgba(184, 146, 42, .85);
       margin: 18px 0 0;
     }
 
     .hero-cover__divider {
       width: 48px;
       height: 2px;
-      background: #c9a96e;
+      background: var(--color-gold);
       margin: 30px 0;
       transform-origin: left;
     }
 
     .hero-cover__positioning {
       max-width: 620px;
-      font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
-      font-size: clamp(16px, 1.5vw, 18px);
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.4vw, 17px);
       line-height: 1.75;
-      color: rgba(255, 255, 255, .68);
+      color: rgba(247, 243, 236, .72);
       margin: 0;
     }
 
-    /* ============ QNH ADDITIONS ============ */
+    .metric-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-gold);
+      font-size: 1.05em;
+      letter-spacing: 0;
+    }
+
+    /* ============ QNH FEATURED ADDITIONS ============ */
     .qnh-disclaimer {
       display: inline-block;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       padding: 5px 12px;
-      border: 1px solid #c9a96e;
+      border: 1px solid var(--color-gold);
       border-radius: 3px;
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
+      font-weight: 700;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: #7a1c1c;
-      background: rgba(201, 169, 110, .08);
+      color: var(--color-crimson);
+      background: var(--color-gold-soft);
     }
 
     .qnh-intro {
-      font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+      font-family: var(--font-body);
       font-size: clamp(15px, 1.4vw, 17px);
       line-height: 1.8;
-      color: #38302a;
+      color: var(--color-ink-soft);
       margin: 0 0 18px;
     }
 
@@ -167,29 +185,29 @@
 
     .qnh-intro em {
       font-style: italic;
-      color: #7a1c1c;
+      color: var(--color-crimson);
     }
 
     .qnh-process {
       margin-top: 64px;
       padding-top: 56px;
-      border-top: 1px solid #d9d1c0;
+      border-top: 1px solid var(--color-rule);
     }
 
     .qnh-process__head {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-family: var(--font-display);
       font-size: clamp(24px, 3vw, 32px);
       font-weight: 600;
-      color: #1a1410;
+      color: var(--color-ink);
       margin: 0 0 8px;
     }
 
     .qnh-process__lede {
-      font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
-      font-size: 15px;
-      color: #6b5f51;
-      margin: 0 0 36px;
+      font-family: var(--font-display);
       font-style: italic;
+      font-size: 16px;
+      color: var(--color-ink-muted);
+      margin: 0 0 36px;
     }
 
     .qnh-process__grid {
@@ -199,44 +217,45 @@
     }
 
     .qnh-step {
-      background: #fff;
-      border: 1px solid #e0d7c2;
-      border-top: 3px solid #7a1c1c;
-      border-radius: 0 0 6px 6px;
+      background: var(--color-paper-warm);
+      border: 1px solid var(--color-rule);
+      border-top: 3px solid var(--color-crimson);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
       padding: 24px 20px;
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: transform var(--transition), box-shadow var(--transition), border-top-color var(--transition);
     }
 
     .qnh-step:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, .07);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+      border-top-color: var(--color-gold);
     }
 
     .qnh-step__num {
-      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
-      font-size: 32px;
+      font-family: var(--font-display);
+      font-size: 34px;
       font-weight: 700;
-      color: #c9a96e;
+      color: var(--color-gold);
       opacity: .55;
       line-height: 1;
       margin: 0 0 10px;
     }
 
     .qnh-step__title {
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: #7a1c1c;
+      color: var(--color-crimson);
       margin: 0 0 10px;
     }
 
     .qnh-step__body {
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 13px;
-      line-height: 1.65;
-      color: #4a4035;
+      line-height: 1.7;
+      color: var(--color-ink-soft);
       margin: 0;
     }
 
@@ -271,28 +290,28 @@
     }
 
     .hero-cover__ctas .button--primary {
-      background: #6b1d1d;
-      border-color: #6b1d1d;
-      color: #fff;
+      background: var(--color-crimson);
+      border-color: var(--color-crimson);
+      color: var(--color-paper);
     }
 
     .hero-cover__ctas .button--primary:hover {
-      background: #8b2929;
-      border-color: #8b2929;
-      color: #fff;
+      background: var(--color-crimson-deep);
+      border-color: var(--color-crimson-deep);
+      color: var(--color-paper);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(107, 29, 29, .4);
+      box-shadow: 0 10px 28px rgba(94, 20, 20, .45);
     }
 
     .hero-cover__ctas .button--ghost {
       background: transparent;
-      border-color: rgba(255, 255, 255, .24);
-      color: rgba(255, 255, 255, .82);
+      border-color: rgba(247, 243, 236, .24);
+      color: rgba(247, 243, 236, .85);
     }
 
     .hero-cover__ctas .button--ghost:hover {
-      border-color: #c9a96e;
-      color: #c9a96e;
+      border-color: var(--color-gold);
+      color: var(--color-gold);
       background: transparent;
     }
 
@@ -301,8 +320,8 @@
       aspect-ratio: 3 / 4;
       border-radius: 6px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .08);
-      background: #111;
+      border: 1px solid rgba(247, 243, 236, .1);
+      background: #0f0b08;
     }
 
     .hero-cover__portrait img {
@@ -319,7 +338,7 @@
       max-width: 1240px;
       margin: 56px auto 0;
       padding: 28px 24px 0;
-      border-top: 1px solid rgba(255, 255, 255, .08);
+      border-top: 1px solid rgba(247, 243, 236, .1);
       display: flex;
       gap: 40px;
       flex-wrap: wrap;
@@ -327,25 +346,25 @@
 
     .hero-cover__bar a,
     .hero-cover__bar span {
-      font-family: var(--font-ui, Inter, sans-serif);
+      font-family: var(--font-ui);
       font-size: 13px;
-      color: rgba(255, 255, 255, .42);
+      color: rgba(247, 243, 236, .48);
       text-decoration: none;
-      transition: color .25s ease;
+      transition: color var(--transition);
     }
 
     .hero-cover__bar a:hover {
-      color: #c9a96e;
+      color: var(--color-gold);
     }
 
     .hero-cover__bar .lbl {
       display: inline-block;
       margin-right: 8px;
       font-size: 10px;
-      letter-spacing: 2px;
+      letter-spacing: .22em;
       text-transform: uppercase;
-      color: #c9a96e;
-      opacity: .72;
+      color: var(--color-gold);
+      opacity: .78;
     }
 
     @media (max-width: 1024px) {
@@ -382,47 +401,21 @@
     }
 
 
-    /* Fix QNH featured image ratio: show full artwork instead of cropping it. */
+    /* QNH featured card: full artwork visible, image above content. */
+    #case-study .proof-card--featured {
+      display: block;
+      overflow: hidden;
+    }
+
     #case-study .proof-card--featured .proof-card__media {
+      width: 100%;
       min-height: 0;
-      background: #181818;
+      border-bottom: var(--border-thin);
+      background: var(--color-ink);
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       padding: 0;
-    }
-
-    #case-study .proof-card--featured .proof-card__media img {
-      width: 100%;
-      height: auto;
-      max-height: 560px;
-      object-fit: contain;
-      display: block;
-      background: #181818;
-    }
-
-    @media (min-width: 1024px) {
-      #case-study .proof-card--featured {
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-        align-items: stretch;
-      }
-    }
-
-  
-
-    /* Final QNH card layout: image above, content below, full artwork visible. */
-    #case-study .proof-card--featured {
-      display: block !important;
-      grid-template-columns: 1fr !important;
-      overflow: hidden;
-    }
-
-    #case-study .proof-card--featured .proof-card__media {
-      width: 100%;
-      min-height: 0;
-      border-bottom: var(--border-thin, 1px solid #d9d1c0);
-      background: #181818;
     }
 
     #case-study .proof-card--featured .proof-card__media img {
@@ -431,7 +424,7 @@
       max-height: none;
       object-fit: contain;
       display: block;
-      background: #181818;
+      background: var(--color-ink);
     }
 </style>
 </head>
@@ -492,30 +485,30 @@
 <!-- ============== WHY FELIX ============== -->
 <section aria-labelledby="why-title" class="section" id="why">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">TẠI SAO FELIX LÀ MỘT ỨNG VIÊN TIỀM NĂNG?</span>
 <h2 id="why-title">Bốn năng lực cốt lõi của Felix</h2>
 </div>
 <div class="snapshot-grid">
-<article class="snapshot-card">
+<article class="snapshot-card reveal">
 <div class="snapshot-card__num">01</div>
 <h3>Phát triển concept dẫn dắt bởi research</h3>
 <p>Felix phát triển mọi ý tưởng bắt đầu từ research, giúp đưa ra những hướng thực thi align đúng với thị hiếu của target audience và performance thực tế trên thị trường.<br/><br/>Các dự án nổi bật: MAGGI vs Barona social listening, phân tích V-Pop cultural hybridity qua lý thuyết Bourdieu, phân tích giá trị văn hóa của Gặp Nhau Cuối Năm qua lý thuyết Stuart Hall.</p>
 <a class="link-arrow" href="#case-study">Xem case study Quán Nhà Haha →</a>
 </article>
-<article class="snapshot-card">
+<article class="snapshot-card reveal">
 <div class="snapshot-card__num">02</div>
 <h3>Biên kịch đa định dạng</h3>
 <p>TVC 30 giây cho 4 brand, phim ngắn đoạt Giải Nhất, podcast longform 40+ phút, treatment unscripted cho gameshow đang phát sóng. Felix có khả năng thích ứng nhanh với mọi loại hình format.</p>
 <a class="link-arrow" href="#pillar-1">Xem biên kịch đa định dạng →</a>
 </article>
-<article class="snapshot-card">
+<article class="snapshot-card reveal">
 <div class="snapshot-card__num">03</div>
 <h3>Tích hợp sponsor với narrative logic</h3>
 <p>Dự án nổi bật: Trong case study Quán Nhà Haha, VCB DigiBank xuất hiện qua arc problem - bad solution - pushback - better solution, mà không phải hero giải quyết vấn đề. Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Trong dự án này tôi lồng ghép VCB như infrastructure đằng sau một gesture nhân văn.</p>
 <a class="link-arrow" href="#pillar-2">Xem brand storytelling →</a>
 </article>
-<article class="snapshot-card">
+<article class="snapshot-card reveal">
 <div class="snapshot-card__num">04</div>
 <h3>Kinh nghiệm production, điều phối sản xuất</h3>
 <p>2 campaign on-set (VinFast, TH true Milk), full production cycle cho chuỗi Reels VinFast VF5 × Kim Joo Yung, 7 sự kiện 50 đến 400 người tại MBE, và là Trưởng BTC của Triển lãm Nghệ thuật tương tác tại ĐH RMIT.</p>
@@ -527,11 +520,11 @@
 <!-- ============== FEATURED CASE STUDY ============== -->
 <section aria-labelledby="case-title" class="section section--alt" id="case-study">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">DỰ ÁN ĐỀ XUẤT · SPECULATIVE CASE STUDY</span>
 <h2 id="case-title">Case study</h2>
 </div>
-<article class="proof-card proof-card--featured">
+<article class="proof-card proof-card--featured reveal">
 <div class="proof-card__media">
 <img alt="Cover treatment Quán Nhà Haha, chặng Huế, tone ấm" height="800" loading="lazy" src="images/qnh-Treatment.jpg" width="1200"/>
 </div>
@@ -560,27 +553,27 @@
 <h3 class="qnh-process__head">Quy trình phát triển treatment</h3>
 <p class="qnh-process__lede">Năm bước từ research đến clip-able moments. Đây là phần thực sự khó tái tạo — không phải ý tưởng, mà là phương pháp.</p>
 <div class="qnh-process__grid">
-<article class="qnh-step">
+<article class="qnh-step reveal">
 <p class="qnh-step__num">01</p>
 <p class="qnh-step__title">Nghiên cứu &amp; Insight</p>
 <p class="qnh-step__body">Phân tích DNA chương trình: format ăn uống + talkshow, tông giọng hài hước chân thật, đối tượng 18–35. Nghiên cứu ẩm thực cung đình Huế và Nhã nhạc như di sản UNESCO.</p>
 </article>
-<article class="qnh-step">
+<article class="qnh-step reveal">
 <p class="qnh-step__num">02</p>
 <p class="qnh-step__title">Concept &amp; Format</p>
 <p class="qnh-step__body">Dàn cast trải nghiệm toàn bộ nghi thức: chuẩn bị bữa tối, nghe Nhã nhạc live trên thuyền, học cách tiếp đãi thay vì chỉ trình diễn. Tình huống thiết kế để tạo phản ứng tự nhiên, không cần scripted dialog.</p>
 </article>
-<article class="qnh-step">
+<article class="qnh-step reveal">
 <p class="qnh-step__num">03</p>
 <p class="qnh-step__title">Outline &amp; Flow</p>
 <p class="qnh-step__body">Ba hồi rõ ràng: Hồi 1 tạo culture shock; Hồi 2 tạo chaos và học nghề; Hồi 3 đưa cast đến một nghi thức mới. Mỗi hồi có turning point riêng.</p>
 </article>
-<article class="qnh-step">
+<article class="qnh-step reveal">
 <p class="qnh-step__num">04</p>
 <p class="qnh-step__title">Cast &amp; Câu hỏi</p>
 <p class="qnh-step__body">Thiết kế vai trò từng thành viên: ai tạo comic relief, ai mang cảm xúc, ai va vào văn hóa, ai kéo tập về sự chân thành. Bộ câu hỏi theo tầng: từ nhẹ đến sâu.</p>
 </article>
-<article class="qnh-step">
+<article class="qnh-step reveal">
 <p class="qnh-step__num">05</p>
 <p class="qnh-step__title">Sponsor &amp; Clip-able</p>
 <p class="qnh-step__body">VCB DigiBank gắn tự nhiên qua chi tiết "hoa số hóa". Xác định các khoảnh khắc cắt social: reaction bếp cung đình, bông hoa, QR gesture, reflection trên sông Hương.</p>
@@ -594,13 +587,13 @@
 <!-- ============== PILLAR 1 ============== -->
 <section aria-labelledby="pillar-1-title" class="section" id="pillar-1">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC I</span>
 <h2 id="pillar-1-title">Biên kịch đa định dạng</h2>
 <p>Mỗi format đòi hỏi một framework kể chuyện khác.<br/><br/>Từ TVC 30 giây cho thương hiệu lớn, đến phim ngắn độc lập, đến podcast long-form: mỗi loại hình đòi hỏi cách kể khác nhau. Những dự án dưới đây chứng minh khả năng thích ứng đó.</p>
 </div>
 <div class="card-grid card-grid--3">
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Still phim ngắn Mùa Hạ Của Chúng Tôi" height="500" loading="lazy" src="images/film-yenhoa.jpg" width="800"/>
 </div>
@@ -617,7 +610,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1OHnG1MviJQ8layw7ve0h_89JdDAPdxtA?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="PNJ Mùa Cưới 2024, frame phim ngắn brand" height="500" loading="lazy" src="images/film-pnj.jpg" width="800"/>
 </div>
@@ -634,7 +627,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1iY9QtssZ1EflfxHWkMRDUmx5X6a86Kra?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Podcast Sustainable Energy, ảnh chủ đề" height="500" loading="lazy" src="images/podcast-energy.jpg" width="800"/>
 </div>
@@ -657,13 +650,13 @@
 <!-- ============== PILLAR 2 ============== -->
 <section aria-labelledby="pillar-2-title" class="section section--alt" id="pillar-2">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC II</span>
 <h2 id="pillar-2-title">Cân bằng brand objective và human story</h2>
 <p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Bốn dự án dưới đây cho thấy tôi nghĩ về brand như một vai trò trong story, không phải một logo cuối frame.</p>
 </div>
 <div class="card-grid card-grid--2">
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Storyboard TVC, minh họa cho dự án BUV" height="500" loading="lazy" src="images/TVC-Storyboard.jpg" width="800"/>
 </div>
@@ -680,7 +673,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/16Ztq8YRrKhiLU_CgmkwwyTGuRpdMkndF?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Storyboard TVC Hapacol" height="500" loading="lazy" src="images/tvc-hapacol.jpg" width="800"/>
 </div>
@@ -697,7 +690,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1-6vp9rLS4MkdFyVgQ3_5Z0_l33Qj1EAN?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="MAGGI Tết storyboard moodboard" height="500" loading="lazy" src="images/maggi.jpg" width="800"/>
 </div>
@@ -714,7 +707,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1CFrzP036DyAb9j6Qsgy1-P0GjKeK50IB?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="VinFast VF5 × Kim Joo Yung, production Reels series" height="500" loading="lazy" src="images/production-vinfast.jpg" width="800"/>
 </div>
@@ -737,13 +730,13 @@
 <!-- ============== PILLAR 3 ============== -->
 <section aria-labelledby="pillar-3-title" class="section" id="pillar-3">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC III</span>
 <h2 id="pillar-3-title">Nghiên cứu văn hóa &amp; Insight khán giả</h2>
 <p>Năm dự án dưới đây là bằng chứng tôi đã rèn năng lực đọc văn hóa và insight khán giả qua academic theory và industry data, đồng thời biết cách dịch research thành content direction.</p>
 </div>
 <div class="card-grid card-grid--3">
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Cover phân tích Gặp Nhau Cuối Năm" height="500" loading="lazy" src="images/gnkn-casestudy.jpg" width="800"/>
 </div>
@@ -760,7 +753,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/file/d/1h_esiMrllZ9829aWPdjUjrEWUm2GvNQw/view?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem nghiên cứu →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Phân tích V-Pop folk × western, moodboard" height="500" loading="lazy" src="images/Folk-Western-vpop.jpg" width="800"/>
 </div>
@@ -777,7 +770,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://www.canva.com/design/DAHKTkbTOjo/W_ABY2H5z5-VSm5utBqOsA/view?utm_content=DAHKTkbTOjo&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h0827c1f054" rel="noopener noreferrer" target="_blank">Xem nghiên cứu →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="MAGGI competitive analysis, data chart minh họa" height="500" loading="lazy" src="images/maggi.jpg" width="800"/>
 </div>
@@ -794,7 +787,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1kkAVvXH7BbVC1XvEaSmt6q9WWWQh_zAk?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem báo cáo →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Equal in Ao Dai, editorial spread minh họa" height="500" loading="lazy" src="images/magazine-gender.jpg" width="800"/>
 </div>
@@ -811,7 +804,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://heyzine.com/flip-book/b9a49ece03.html" rel="noopener noreferrer" target="_blank">Xem magazine →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media"><img alt="Patriotic Rap as New Red Music, research proposal cover" height="500" loading="lazy" src="images/research-patriotic-rap.jpg" width="800"/></div>
 <div class="proof-card__body">
 <div class="proof-card__label">NGHIÊN CỨU VĂN HÓA &amp; XÃ HỘI</div>
@@ -832,23 +825,23 @@
 <!-- ============== PILLAR 4 ============== -->
 <section aria-labelledby="pillar-4-title" class="section section--alt" id="pillar-4">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC IV</span>
 <h2 id="pillar-4-title">Kinh nghiệm production, điều phối sản xuất</h2>
 <p>Biên kịch tốt biết gì sẽ break khi quay. Bốn năm phối hợp on-set, event production, exhibition, và social-first content cho tôi sự fluency đó.</p>
 </div>
-<div aria-label="Số liệu production" class="metric-strip" role="list">
-<span role="listitem">316 lượt tham quan triển lãm</span>
-<span role="listitem">34,500+ tương tác social</span>
-<span role="listitem">7 sự kiện 50 đến 400 người</span>
-<span role="listitem">60% giảm prep-time của Director</span>
-<span role="listitem">2 brand campaign on-set</span>
-<span role="listitem">270 người lữ hành điều phối</span>
-<span role="listitem">18M VND gọi vốn</span>
-<span role="listitem">40+ SOPs xây dựng</span>
+<div aria-label="Số liệu production" class="metric-strip reveal" role="list">
+<span role="listitem"><span class="metric-num" data-counter="316">316</span> lượt tham quan triển lãm</span>
+<span role="listitem"><span class="metric-num" data-counter="34500" data-counter-suffix="+">34,500+</span> tương tác social</span>
+<span role="listitem"><span class="metric-num" data-counter="7">7</span> sự kiện 50 đến 400 người</span>
+<span role="listitem"><span class="metric-num" data-counter="60" data-counter-suffix="%">60%</span> giảm prep-time của Director</span>
+<span role="listitem"><span class="metric-num" data-counter="2">2</span> brand campaign on-set</span>
+<span role="listitem"><span class="metric-num" data-counter="270">270</span> người lữ hành điều phối</span>
+<span role="listitem"><span class="metric-num" data-counter="18" data-counter-suffix="M">18M</span> VND gọi vốn</span>
+<span role="listitem"><span class="metric-num" data-counter="40" data-counter-suffix="+">40+</span> SOPs xây dựng</span>
 </div>
 <div class="card-grid card-grid--2">
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="On-set ForArt Film Production, trường quay" height="500" loading="lazy" src="images/ForArt.jpg" width="800"/>
 </div>
@@ -865,7 +858,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://www.facebook.com/share/p/1952CNpUKZ/" rel="noopener noreferrer" target="_blank">Xem portfolio →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Triển lãm Little Me, khu vực tương tác" height="500" loading="lazy" src="images/Little-Me.jpg" width="800"/>
 </div>
@@ -882,7 +875,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1FiBLLSjVYBPSGc2WvJgVemFod2fg4s49" rel="noopener noreferrer" target="_blank">Xem triển lãm →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="RMIT Student Council social content, ảnh kênh" height="500" loading="lazy" src="images/rmit-social.jpg" width="800"/>
 </div>
@@ -899,7 +892,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://www.tiktok.com/@rmitstudentcouncilhanoi" rel="noopener noreferrer" target="_blank">Xem TikTok →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Sự kiện MBE Mien Bac Event, không gian doanh nghiệp" height="500" loading="lazy" src="images/mbe.jpg" width="800"/>
 </div>
@@ -916,7 +909,7 @@
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://sukienmienbac.vn/su-kien-mien-bac-event/" rel="noopener noreferrer" target="_blank">Xem công ty →</a></div></div>
 </article>
-<article class="proof-card">
+<article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="EMPACTS, tổ chức kết nối startup ecosystem for SDGs" height="500" loading="lazy" src="images/empacts-org.jpg" width="800"/>
 </div>
@@ -941,7 +934,7 @@
 <!-- ============== CONTACT ============== -->
 <section aria-labelledby="contact-title" class="section section--alt" id="contact">
 <div class="container">
-<div class="section-head">
+<div class="section-head reveal">
 <span class="eyebrow">LIÊN HỆ</span>
 <h2 id="contact-title">Kết nối với Felix Phan</h2>
 </div>
