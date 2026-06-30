@@ -101,12 +101,52 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--color-ink-soft);
   background: var(--color-paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Unified body-text size sitewide.
+   Hierarchy is delivered through weight, color, case, spacing, and composition,
+   not through text size. Headings keep their own scale. */
+p,
+li,
+dd,
+.proof-card dd,
+.proof-card__body p,
+.snapshot-card p,
+.section-head p,
+.cs-prose-pack p,
+.cs-tension__card p,
+.cs-sponsor__step p,
+.cs-cut p,
+.cs-prove p,
+.cs-cast__trait,
+.cs-cast__scene,
+.cs-act p,
+.cs-beats li,
+.qnh-step__body,
+.qnh-intro {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Meta strings (eyebrow/labels/dates) stay smaller for hierarchy via case + weight. */
+.proof-card__meta,
+.proof-card__label,
+.proof-card dt,
+.snapshot-card__num,
+.eyebrow,
+.label,
+.cs-cast__role,
+.cs-cut__meta,
+.contact-card dt,
+.metric-strip,
+.nav__brand .nav__brand-sub {
+  font-size: 12px;
 }
 
 img, picture, svg { display: block; max-width: 100%; height: auto; }
@@ -342,10 +382,9 @@ a:hover { color: var(--color-crimson-deep); }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(247, 243, 236, 0.92);
-  backdrop-filter: saturate(160%) blur(10px);
-  -webkit-backdrop-filter: saturate(160%) blur(10px);
-  border-bottom: var(--border-thin);
+  background: var(--color-crimson-deep);
+  border-bottom: 1px solid rgba(184, 146, 42, .35);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .12);
 }
 
 .nav__inner {
@@ -366,8 +405,8 @@ a:hover { color: var(--color-crimson-deep); }
 .nav__brand {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--text-lg);
-  color: var(--color-ink);
+  font-size: 18px;
+  color: var(--color-paper);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
@@ -375,7 +414,6 @@ a:hover { color: var(--color-crimson-deep); }
 .nav__brand .nav__brand-sub {
   display: block;
   font-family: var(--font-ui);
-  font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-gold);
@@ -394,9 +432,9 @@ a:hover { color: var(--color-crimson-deep); }
 
 .nav__links a {
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
+  font-size: 14px;
   font-weight: 500;
-  color: var(--color-ink-soft);
+  color: rgba(247, 243, 236, .78);
   text-decoration: none;
   padding: 6px 2px;
   position: relative;
@@ -410,14 +448,14 @@ a:hover { color: var(--color-crimson-deep); }
   right: 0;
   bottom: 0;
   height: 2px;
-  background: var(--color-crimson);
+  background: var(--color-gold);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform var(--transition);
 }
 
 .nav__links a:hover,
-.nav__links a.is-active { color: var(--color-crimson); }
+.nav__links a.is-active { color: var(--color-gold); }
 
 .nav__links a:hover::after,
 .nav__links a.is-active::after { transform: scaleX(1); }
@@ -425,13 +463,13 @@ a:hover { color: var(--color-crimson-deep); }
 .nav__toggle {
   appearance: none;
   background: transparent;
-  border: var(--border-thin);
+  border: 1px solid rgba(247, 243, 236, .35);
   border-radius: var(--radius-sm);
   padding: 8px 12px;
   font-family: var(--font-ui);
-  font-size: var(--text-sm);
+  font-size: 13px;
   font-weight: 600;
-  color: var(--color-ink);
+  color: var(--color-paper);
   cursor: pointer;
 }
 
@@ -448,8 +486,8 @@ a:hover { color: var(--color-crimson-deep); }
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-paper);
-    border-bottom: var(--border-thin);
+    background: var(--color-crimson-deep);
+    border-bottom: 1px solid rgba(184, 146, 42, .3);
     padding: var(--space-3) var(--gutter);
     gap: var(--space-2);
     align-items: flex-start;
@@ -457,7 +495,7 @@ a:hover { color: var(--color-crimson-deep); }
   .nav__links.is-open a {
     width: 100%;
     padding: 8px 0;
-    border-bottom: 1px solid var(--color-rule-soft);
+    border-bottom: 1px solid rgba(247, 243, 236, .12);
   }
 }
 

@@ -75,7 +75,7 @@
       width: 100%;
       max-width: 1240px;
       margin: 0 auto;
-      padding: 96px 24px 0;
+      padding: 48px 24px 64px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 340px;
       gap: 64px;
@@ -110,42 +110,35 @@
 
     .hero-cover__role {
       font-family: var(--font-display);
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(22px, 2.4vw, 28px);
       font-weight: 600;
       color: var(--color-gold);
-      margin: 24px 0 4px;
+      margin: 22px 0 2px;
+      line-height: 1.25;
     }
 
     .hero-cover__role-en {
-      font-family: var(--font-display);
-      font-size: clamp(18px, 2.2vw, 26px);
-      font-style: italic;
-      color: rgba(247, 243, 236, .76);
-      margin: 0;
-    }
-
-    .hero-cover__lanes {
       font-family: var(--font-ui);
-      font-size: 13px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(184, 146, 42, .85);
-      margin: 18px 0 0;
+      font-size: 15px;
+      font-style: normal;
+      letter-spacing: .04em;
+      color: rgba(247, 243, 236, .68);
+      margin: 0;
     }
 
     .hero-cover__divider {
       width: 48px;
       height: 2px;
       background: var(--color-gold);
-      margin: 30px 0;
+      margin: 22px 0;
       transform-origin: left;
     }
 
     .hero-cover__positioning {
       max-width: 620px;
       font-family: var(--font-body);
-      font-size: clamp(15px, 1.4vw, 17px);
-      line-height: 1.75;
+      font-size: 15px;
+      line-height: 1.7;
       color: rgba(247, 243, 236, .72);
       margin: 0;
     }
@@ -156,6 +149,24 @@
       color: var(--color-gold);
       font-size: 1.05em;
       letter-spacing: 0;
+    }
+
+    /* ============ PILLAR 4: 3-top + 2-bottom grid ============ */
+    .card-grid--5x {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    @media (min-width: 640px) {
+      .card-grid--5x { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .card-grid--5x { grid-template-columns: repeat(6, 1fr); gap: var(--space-4); }
+      .card-grid--5x > article:nth-child(1),
+      .card-grid--5x > article:nth-child(2),
+      .card-grid--5x > article:nth-child(3) { grid-column: span 2; }
+      .card-grid--5x > article:nth-child(4),
+      .card-grid--5x > article:nth-child(5) { grid-column: span 3; }
     }
 
     /* ============ WHY FELIX: 4-up compact grid ============ */
@@ -207,89 +218,6 @@
     .qnh-intro em {
       font-style: italic;
       color: var(--color-crimson);
-    }
-
-    .qnh-process {
-      margin-top: 64px;
-      padding-top: 56px;
-      border-top: 1px solid var(--color-rule);
-    }
-
-    .qnh-process__head {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 600;
-      color: var(--color-ink);
-      margin: 0 0 8px;
-    }
-
-    .qnh-process__lede {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 16px;
-      color: var(--color-ink-muted);
-      margin: 0 0 36px;
-    }
-
-    .qnh-process__grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-
-    .qnh-step {
-      background: var(--color-paper-warm);
-      border: 1px solid var(--color-rule);
-      border-top: 3px solid var(--color-crimson);
-      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-      padding: 24px 20px;
-      transition: transform var(--transition), box-shadow var(--transition), border-top-color var(--transition);
-    }
-
-    .qnh-step:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
-      border-top-color: var(--color-gold);
-    }
-
-    .qnh-step__num {
-      font-family: var(--font-display);
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--color-gold);
-      opacity: .55;
-      line-height: 1;
-      margin: 0 0 10px;
-    }
-
-    .qnh-step__title {
-      font-family: var(--font-ui);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--color-crimson);
-      margin: 0 0 10px;
-    }
-
-    .qnh-step__body {
-      font-family: var(--font-ui);
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--color-ink-soft);
-      margin: 0;
-    }
-
-    @media (max-width: 1024px) {
-      .qnh-process__grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    @media (max-width: 700px) {
-      .qnh-process__grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 480px) {
-      .qnh-process__grid { grid-template-columns: 1fr; }
     }
 
     .hero-cover__ctas {
@@ -352,46 +280,10 @@
       display: block;
     }
 
-    .hero-cover__bar {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 1240px;
-      margin: 56px auto 0;
-      padding: 28px 24px 0;
-      border-top: 1px solid rgba(247, 243, 236, .1);
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .hero-cover__bar a,
-    .hero-cover__bar span {
-      font-family: var(--font-ui);
-      font-size: 13px;
-      color: rgba(247, 243, 236, .48);
-      text-decoration: none;
-      transition: color var(--transition);
-    }
-
-    .hero-cover__bar a:hover {
-      color: var(--color-gold);
-    }
-
-    .hero-cover__bar .lbl {
-      display: inline-block;
-      margin-right: 8px;
-      font-size: 10px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--color-gold);
-      opacity: .78;
-    }
-
     @media (max-width: 1024px) {
       .hero-cover__inner {
         grid-template-columns: 1fr;
-        padding-top: 72px;
+        padding-top: 40px;
       }
 
       .hero-cover__portrait {
@@ -401,18 +293,8 @@
 
     @media (max-width: 640px) {
       .hero-cover__inner {
-        padding-top: 64px;
+        padding: 32px 24px 48px;
         gap: 40px;
-      }
-
-      .hero-cover__bar {
-        margin-top: 42px;
-        gap: 18px;
-      }
-
-      .hero-cover__bar a,
-      .hero-cover__bar span {
-        width: 100%;
       }
 
       .hero-cover__dot {
@@ -435,22 +317,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0;
+      padding: 16px;
       aspect-ratio: 4 / 3;
       border-bottom: var(--border-thin);
     }
 
     #case-study .proof-card--featured .proof-card__media img {
-      width: 100%;
+      width: auto;
       height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      object-fit: contain;
       object-position: center;
       display: block;
-      background: var(--color-ink);
     }
 
     #case-study .proof-card--featured .proof-card__body {
-      padding: var(--space-4) var(--space-4);
+      padding: var(--space-3) var(--space-4);
     }
 
     @media (min-width: 900px) {
@@ -463,19 +345,13 @@
         border-bottom: none;
         border-right: var(--border-thin);
         height: 100%;
-        min-height: 480px;
-        max-height: 580px;
+        min-height: 420px;
+        max-height: 520px;
       }
     }
 
-    /* Section padding tightening for case study */
+    /* Section padding tightening for case study, fits in ~1 viewport */
     #case-study { padding-block: var(--space-5); }
-    .qnh-process { margin-top: var(--space-5); padding-top: var(--space-4); }
-    .qnh-process__head { margin-bottom: var(--space-3); }
-    .qnh-step { padding: 18px 16px; }
-    .qnh-step__num { font-size: 28px; margin-bottom: 6px; }
-    .qnh-step__title { font-size: 10.5px; margin-bottom: 8px; }
-    .qnh-step__body { font-size: 12.5px; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -510,8 +386,7 @@
             <span class="outline">Phan</span>
 </h1>
 <p class="hero-cover__role">Phát triển nội dung &amp; Biên kịch</p>
-<p class="hero-cover__role-en">Creative Development &amp; Scriptwriting</p>
-<p class="hero-cover__lanes">Truyền hình thực tế · Branded Storytelling · Nội dung Social-first</p>
+<p class="hero-cover__role-en">Creative Development &amp; Scriptwriting · Truyền hình thực tế · Branded Storytelling · Social-first</p>
 <div class="hero-cover__divider"></div>
 <p class="hero-cover__positioning">
             Tôi phát triển concept giải trí từ bước research đến xây dựng cấu trúc story shootable: audience insight, format logic, cast dynamics, tích hợp sponsor, và editorial moment cho short-form.
@@ -590,36 +465,6 @@
 </div>
 </article>
 
-<div class="qnh-process">
-<h3 class="qnh-process__head">Quy trình phát triển treatment</h3>
-<div class="qnh-process__grid">
-<article class="qnh-step reveal">
-<p class="qnh-step__num">01</p>
-<p class="qnh-step__title">Nghiên cứu &amp; Insight</p>
-<p class="qnh-step__body">Phân tích DNA chương trình: format ăn uống + talkshow, tông giọng hài hước chân thật, đối tượng 18-35. Nghiên cứu ẩm thực cung đình Huế và Nhã nhạc như di sản UNESCO.</p>
-</article>
-<article class="qnh-step reveal">
-<p class="qnh-step__num">02</p>
-<p class="qnh-step__title">Concept &amp; Format</p>
-<p class="qnh-step__body">Dàn cast trải nghiệm toàn bộ nghi thức: chuẩn bị bữa tối, nghe Nhã nhạc live trên thuyền, học cách tiếp đãi thay vì chỉ trình diễn. Tình huống thiết kế để tạo phản ứng tự nhiên, không cần scripted dialog.</p>
-</article>
-<article class="qnh-step reveal">
-<p class="qnh-step__num">03</p>
-<p class="qnh-step__title">Outline &amp; Flow</p>
-<p class="qnh-step__body">Ba hồi rõ ràng: Hồi 1 tạo culture shock; Hồi 2 tạo chaos và học nghề; Hồi 3 đưa cast đến một nghi thức mới. Mỗi hồi có turning point riêng.</p>
-</article>
-<article class="qnh-step reveal">
-<p class="qnh-step__num">04</p>
-<p class="qnh-step__title">Cast &amp; Câu hỏi</p>
-<p class="qnh-step__body">Thiết kế vai trò từng thành viên: ai tạo comic relief, ai mang cảm xúc, ai va vào văn hóa, ai kéo tập về sự chân thành. Bộ câu hỏi theo tầng: từ nhẹ đến sâu.</p>
-</article>
-<article class="qnh-step reveal">
-<p class="qnh-step__num">05</p>
-<p class="qnh-step__title">Sponsor &amp; Clip-able</p>
-<p class="qnh-step__body">VCB DigiBank gắn tự nhiên qua chi tiết "hoa số hóa". Xác định các khoảnh khắc cắt social: reaction bếp cung đình, bông hoa, QR gesture, reflection trên sông Hương.</p>
-</article>
-</div>
-</div>
 </div>
 </section>
 <!-- ============== PILLARS WRAPPER ============== -->
@@ -643,10 +488,8 @@
 <p class="proof-card__meta">Cuộc thi phim ngắn THPT Yên Hòa, 2022</p>
 <dl>
 <dt>Vai trò</dt><dd>Biên kịch, đạo diễn, dựng phim</dd>
-<dt>Vấn đề</dt><dd>Một câu chuyện coming-of-age mà không sa vào nostalgia trick.</dd>
-<dt>Quyết định</dt><dd>Cấu trúc 3 hồi với một twist không phải plot, là perspective shift.</dd>
+<dt>Nội dung</dt><dd>Phim ngắn coming-of-age mùa tốt nghiệp THPT, cấu trúc 3 hồi và kết bằng một perspective shift thay vì plot twist quen thuộc. Tự làm trọn từ script đến final cut.</dd>
 <dt>Output</dt><dd>Kịch bản văn học và phim ngắn.</dd>
-<dt>Kỹ năng</dt><dd>Story structure end-to-end · Production pipeline solo từ script đến final cut.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1OHnG1MviJQ8layw7ve0h_89JdDAPdxtA?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
 </article>
@@ -657,13 +500,11 @@
 <div class="proof-card__body">
 <div class="proof-card__label">PHIM NGẮN · BRAND STORYTELLING</div>
 <h3>PNJ Mùa Cưới 2024</h3>
-<p class="proof-card__meta">Script Writer, 2024</p>
+<p class="proof-card__meta">Capstone project, 2024</p>
 <dl>
-<dt>Vai trò</dt><dd>Script writer</dd>
-<dt>Vấn đề</dt><dd>Storytelling cảm xúc cho thương hiệu trang sức mà không bị sến.</dd>
-<dt>Quyết định</dt><dd>Đặt mạch truyện quanh một quyết định nhỏ, không phải proposal lớn.</dd>
+<dt>Vai trò</dt><dd>Biên kịch</dd>
+<dt>Nội dung</dt><dd>Phim ngắn brand storytelling mùa cưới PNJ, đặt mạch truyện quanh một quyết định nhỏ thay vì proposal lớn, cân bằng commercial message và human story.</dd>
 <dt>Output</dt><dd>Kịch bản văn học và Storyboard TVC.</dd>
-<dt>Kỹ năng</dt><dd>Brand storytelling restraint · Cân bằng commercial message và human story.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1iY9QtssZ1EflfxHWkMRDUmx5X6a86Kra?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
 </article>
@@ -674,13 +515,11 @@
 <div class="proof-card__body">
 <div class="proof-card__label">PODCAST · LONG-FORM</div>
 <h3>Sustainable Energy Series</h3>
-<p class="proof-card__meta">Script Writer, Producer, Voice · 2024</p>
+<p class="proof-card__meta">Capstone project, 2024</p>
 <dl>
-<dt>Vai trò</dt><dd>Viết kịch bản, sản xuất, lồng tiếng.</dd>
-<dt>Vấn đề</dt><dd>Format 40+ phút phải giữ mạch truyện qua nhiều segment dài, không thể nương kịch tính video.</dd>
-<dt>Quyết định</dt><dd>Mỗi episode có một câu hỏi đóng và 3 câu hỏi mở, segment được cấu trúc theo arc cảm xúc.</dd>
+<dt>Vai trò</dt><dd>Biên kịch, sản xuất, lồng tiếng</dd>
+<dt>Nội dung</dt><dd>Podcast học thuật về sustainable energy, mỗi tập dài 40+ phút cấu trúc theo một câu hỏi đóng và ba câu hỏi mở để giữ mạch truyện không cần visual support.</dd>
 <dt>Output</dt><dd>Script và audio production cho series.</dd>
-<dt>Kỹ năng</dt><dd>Longform structure · Editorial discipline khi không có visual support.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/12VriM4x-aIlAnSOmtRzbgZVB6KAApTqZ?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem podcast →</a></div></div>
 </article>
@@ -692,8 +531,8 @@
 <div class="container">
 <div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC II</span>
-<h2 id="pillar-2-title">Cân bằng brand objective và human story</h2>
-<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Bốn dự án dưới đây cho thấy tôi nghĩ về brand như một vai trò trong story, không phải một logo cuối frame.</p>
+<h2 id="pillar-2-title">Cân bằng brand objective trong script</h2>
+<p>Brand tài trợ khi xuất hiện không được <strong>nhạt nhòa</strong>, càng không thể tạo cảm giác <strong>phiền phức</strong> đối với người xem, mà brand cần trở thành <strong>một nhân vật riêng gắn kết với script</strong>. Bốn dự án dưới đây cho thấy tôi nghĩ về brand như một vai trò trong story, không phải một logo cuối frame.</p>
 </div>
 <div class="card-grid card-grid--2">
 <article class="proof-card reveal">
@@ -706,10 +545,10 @@
 <p class="proof-card__meta">ForArt Film Production · Script Writer, Storyboard · 2024</p>
 <dl>
 <dt>Vai trò</dt><dd>Concept, script, storyboard.</dd>
-<dt>Vấn đề</dt><dd>Giới thiệu một ngành học mới cho phụ huynh và học sinh mà không bị "trường tốt vì có công nghệ".</dd>
+<dt>Vấn đề</dt><dd>Giới thiệu một ngành học mới cho phụ huynh và học sinh.</dd>
 <dt>Quyết định</dt><dd>Đổi điểm vào từ "ngành này dạy gì" sang "ngành này thay đổi câu hỏi nào của xã hội".</dd>
-<dt>Output</dt><dd>Script và storyboard, vượt qua 4 vòng chỉnh sửa từ brief đến final.</dd>
-<dt>Kỹ năng</dt><dd>Concept translation cho academic brand · Storyboard logic.</dd>
+<dt>Output</dt><dd>Script và storyboard.</dd>
+<dt>Kỹ năng</dt><dd>Creative direction · Storytelling · Scriptwriting.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/16Ztq8YRrKhiLU_CgmkwwyTGuRpdMkndF?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
 </article>
@@ -726,7 +565,7 @@
 <dt>Vấn đề</dt><dd>Pharma brand cần emotional hook mà không vi phạm quy định quảng cáo dược.</dd>
 <dt>Quyết định</dt><dd>Chuyển focus từ "thuốc giải quyết triệu chứng" sang khoảnh khắc người chăm sóc nhận ra mình quên chính mình.</dd>
 <dt>Output</dt><dd>Script và storyboard.</dd>
-<dt>Kỹ năng</dt><dd>Brand storytelling trong constraint pháp lý.</dd>
+<dt>Kỹ năng</dt><dd>Creative direction · Storytelling · Scriptwriting.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1-6vp9rLS4MkdFyVgQ3_5Z0_l33Qj1EAN?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
 </article>
@@ -737,7 +576,7 @@
 <div class="proof-card__body">
 <div class="proof-card__label">TVC STORYBOARD · FMCG</div>
 <h3>Cleaning Frenzy &amp; MAGGI Tết 2026</h3>
-<p class="proof-card__meta">Script Writer, Storyboard · 2024 đến 2025</p>
+<p class="proof-card__meta">Capstone project, 2025</p>
 <dl>
 <dt>Vai trò</dt><dd>Concept, script, storyboard cho 2 campaign FMCG.</dd>
 <dt>Vấn đề</dt><dd>Tết campaign cho FMCG luôn cạnh tranh với 20+ brand cùng category cùng thời điểm.</dd>
@@ -754,7 +593,7 @@
 <div class="proof-card__body">
 <div class="proof-card__label">PRODUCTION + REELS SERIES</div>
 <h3>VinFast VF5 × Kim Joo Yung</h3>
-<p class="proof-card__meta">ForArt Film Production · Production Manager, Reels Series · 2024</p>
+<p class="proof-card__meta">ForArt Film Production · Reels Series · 2024</p>
 <dl>
 <dt>Vai trò</dt><dd>Full production cycle cho chuỗi Reels (pre-production đến final delivery).</dd>
 <dt>Vấn đề</dt><dd>Talent quốc tế, brand automotive, format short-form, lịch shoot ngắn.</dd>
@@ -881,24 +720,7 @@
 <span role="listitem"><span class="metric-num" data-counter="18" data-counter-suffix="M">18M</span> VND gọi vốn</span>
 <span role="listitem"><span class="metric-num" data-counter="40" data-counter-suffix="+">40+</span> SOPs xây dựng</span>
 </div>
-<div class="card-grid card-grid--2">
-<article class="proof-card reveal">
-<div class="proof-card__media">
-<img alt="On-set ForArt Film Production, trường quay" height="500" loading="lazy" src="images/ForArt.jpg" width="800"/>
-</div>
-<div class="proof-card__body">
-<div class="proof-card__label">ON-SET PRODUCTION · COMMERCIAL</div>
-<h3>ForArt Film Production</h3>
-<p class="proof-card__meta">Creative Intern · 3/2024 đến 7/2024</p>
-<dl>
-<dt>Vai trò</dt><dd>Điều phối trường quay, tracking source đầu ra, quản lý production cycle.</dd>
-<dt>Vấn đề</dt><dd>2 campaign brand (VinFast, TH true Milk) cùng thời điểm, source và timeline conflict.</dd>
-<dt>Quyết định</dt><dd>Build tracking sheet tách 2 stream song song với daily checkpoint.</dd>
-<dt>Output</dt><dd>2 campaign delivered on-scope on-time; chuỗi Reels VinFast VF5 × Kim Joo Yung từ pre-production đến final delivery.</dd>
-<dt>Kỹ năng</dt><dd>Production coordination · Timeline tracking · QC trên set.</dd>
-</dl>
-<div class="proof-card__footer"><a class="link-arrow" href="https://www.facebook.com/share/p/1952CNpUKZ/" rel="noopener noreferrer" target="_blank">Xem portfolio →</a></div></div>
-</article>
+<div class="card-grid card-grid--5x">
 <article class="proof-card reveal">
 <div class="proof-card__media">
 <img alt="Triển lãm Little Me, khu vực tương tác" height="500" loading="lazy" src="images/Little-Me.jpg" width="800"/>
@@ -915,6 +737,21 @@
 <dt>Kỹ năng</dt><dd>Project management · Event Planner · Fundraising.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1FiBLLSjVYBPSGc2WvJgVemFod2fg4s49" rel="noopener noreferrer" target="_blank">Xem triển lãm →</a></div></div>
+</article>
+<article class="proof-card reveal">
+<div class="proof-card__media">
+<img alt="On-set ForArt Film Production, trường quay" height="500" loading="lazy" src="images/ForArt.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">ON-SET PRODUCTION · COMMERCIAL</div>
+<h3>ForArt Film Production</h3>
+<p class="proof-card__meta">Creative Intern · 3/2024 đến 7/2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Điều phối trường quay, tracking source đầu ra, quản lý production cycle.</dd>
+<dt>Output</dt><dd>2 campaign delivered on-scope on-time; chuỗi Reels VinFast VF5 × Kim Joo Yung từ pre-production đến final delivery.</dd>
+<dt>Kỹ năng</dt><dd>Production coordination · Timeline tracking · QC trên set.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://www.facebook.com/share/p/1952CNpUKZ/" rel="noopener noreferrer" target="_blank">Xem portfolio →</a></div></div>
 </article>
 <article class="proof-card reveal">
 <div class="proof-card__media">
@@ -938,7 +775,7 @@
 <img alt="Sự kiện MBE Mien Bac Event, không gian doanh nghiệp" height="500" loading="lazy" src="images/mbe.jpg" width="800"/>
 </div>
 <div class="proof-card__body">
-<div class="proof-card__label">EVENT COORDINATION · QUY MÔ LỚN</div>
+<div class="proof-card__label">EVENT COORDINATION</div>
 <h3>Mien Bac Event (MBE)</h3>
 <p class="proof-card__meta">Trợ lý Giám đốc (Thực tập) · 2/2026 đến 5/2026</p>
 <dl>
@@ -959,7 +796,7 @@
 <h3>EMPACTS, Startup Ecosystem for SDGs</h3>
 <p class="proof-card__meta">Founder, Vice-president · 5/2024 đến 12/2024</p>
 <dl>
-<dt>Vai trò</dt><dd>Founder, VP, designer of org infrastructure.</dd>
+<dt>Vai trò</dt><dd>Founder, Vice-president, Organization builder.</dd>
 <dt>Vấn đề</dt><dd>Kết nối social enterprise giai đoạn đầu với hệ sinh thái SDGs Việt Nam và các quỹ doanh nghiệp hướng tới ESG.</dd>
 <dt>Quyết định</dt><dd>Build infrastructure cho seamless handover (6 phòng ban, 21 vai trò, 40+ SOPs).</dd>
 <dt>Output</dt><dd>Tổ chức 54 thành viên · Phased budget 2.59B VND · 4.65/5 peer eval score · Handover hoàn tất.</dd>
