@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Felix Phan, Creative Development &amp; Scriptwriting · Portfolio 2026</title>
+<meta content="Portfolio của Felix Phan, phát triển nội dung và biên kịch cho truyền hình thực tế, branded storytelling, và nội dung social-first tại Việt Nam." name="description"/>
+<meta content="Felix Phan" name="author"/>
+<meta content="#7a1c1c" name="theme-color"/>
+<meta content="Felix Phan, Creative Development &amp; Scriptwriting" property="og:title"/>
+<meta content="Phát triển nội dung và biên kịch. Truyền hình thực tế, branded storytelling, nội dung social-first." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="images/hero-portrait.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<style>
+    /* Hero format adapted from uploaded reference index(1).html. Kept inside index so this working file can be reviewed independently. */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+    }
+
+    .hero--cover {
+      min-height: 100vh;
+      position: relative;
+      background: #181818;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .hero-cover__accent {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 42%;
+      height: 100%;
+      background: linear-gradient(155deg, #4a1212 0%, transparent 65%);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .hero-cover__dot {
+      position: absolute;
+      bottom: 40px;
+      right: 48px;
+      width: 180px;
+      height: 180px;
+      background-image: radial-gradient(circle, rgba(201, 169, 110, .18) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none;
+    }
+
+    .hero-cover__inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 96px 24px 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-cover__kicker {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #c9a96e;
+      margin: 0 0 28px;
+    }
+
+    .hero-cover__name {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(72px, 10vw, 124px);
+      font-weight: 700;
+      line-height: .92;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.035em;
+    }
+
+    .hero-cover__name .outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, .28);
+      color: transparent;
+      display: block;
+    }
+
+    .hero-cover__role {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 600;
+      color: #c9a96e;
+      margin: 24px 0 4px;
+    }
+
+    .hero-cover__role-en {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(18px, 2.2vw, 26px);
+      font-style: italic;
+      color: rgba(255, 255, 255, .76);
+      margin: 0;
+    }
+
+    .hero-cover__lanes {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 13px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 110, .78);
+      margin: 18px 0 0;
+    }
+
+    .hero-cover__divider {
+      width: 48px;
+      height: 2px;
+      background: #c9a96e;
+      margin: 30px 0;
+      transform-origin: left;
+    }
+
+    .hero-cover__positioning {
+      max-width: 620px;
+      font-family: var(--font-body, 'Source Serif 4', Georgia, serif);
+      font-size: clamp(16px, 1.5vw, 18px);
+      line-height: 1.75;
+      color: rgba(255, 255, 255, .68);
+      margin: 0;
+    }
+
+    .hero-cover__ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .hero-cover__ctas .button {
+      border-radius: 6px;
+      padding: 14px 30px;
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      transition: transform .25s ease, background .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease;
+    }
+
+    .hero-cover__ctas .button--primary {
+      background: #6b1d1d;
+      border-color: #6b1d1d;
+      color: #fff;
+    }
+
+    .hero-cover__ctas .button--primary:hover {
+      background: #8b2929;
+      border-color: #8b2929;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(107, 29, 29, .4);
+    }
+
+    .hero-cover__ctas .button--ghost {
+      background: transparent;
+      border-color: rgba(255, 255, 255, .24);
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .hero-cover__ctas .button--ghost:hover {
+      border-color: #c9a96e;
+      color: #c9a96e;
+      background: transparent;
+    }
+
+    .hero-cover__portrait {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: #111;
+    }
+
+    .hero-cover__portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-cover__bar {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1240px;
+      margin: 56px auto 0;
+      padding: 28px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cover__bar a,
+    .hero-cover__bar span {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: 13px;
+      color: rgba(255, 255, 255, .42);
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .hero-cover__bar a:hover {
+      color: #c9a96e;
+    }
+
+    .hero-cover__bar .lbl {
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a96e;
+      opacity: .72;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-cover__inner {
+        grid-template-columns: 1fr;
+        padding-top: 72px;
+      }
+
+      .hero-cover__portrait {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-cover__inner {
+        padding-top: 64px;
+        gap: 40px;
+      }
+
+      .hero-cover__bar {
+        margin-top: 42px;
+        gap: 18px;
+      }
+
+      .hero-cover__bar a,
+      .hero-cover__bar span {
+        width: 100%;
+      }
+
+      .hero-cover__dot {
+        right: -40px;
+        bottom: 20px;
+      }
+    }
+
+
+    /* Fix QNH featured image ratio: show full artwork instead of cropping it. */
+    #case-study .proof-card--featured .proof-card__media {
+      min-height: 0;
+      background: #181818;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    #case-study .proof-card--featured .proof-card__media img {
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      object-fit: contain;
+      display: block;
+      background: #181818;
+    }
+
+    @media (min-width: 1024px) {
+      #case-study .proof-card--featured {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+        align-items: stretch;
+      }
+    }
+
+  
+
+    /* Final QNH card layout: image above, content below, full artwork visible. */
+    #case-study .proof-card--featured {
+      display: block !important;
+      grid-template-columns: 1fr !important;
+      overflow: hidden;
+    }
+
+    #case-study .proof-card--featured .proof-card__media {
+      width: 100%;
+      min-height: 0;
+      border-bottom: var(--border-thin, 1px solid #d9d1c0);
+      background: #181818;
+    }
+
+    #case-study .proof-card--featured .proof-card__media img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      display: block;
+      background: #181818;
+    }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, đến nội dung chính</a>
+<nav aria-label="Điều hướng chính" class="nav">
+<div class="nav__inner">
+<a class="nav__brand" href="#top">
+        Felix Phan
+        <span class="nav__brand-sub">Creative Development</span>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" class="nav__toggle" type="button">Menu</button>
+<ul class="nav__links" id="nav-links">
+
+<li><a href="#why">Tại sao Felix</a></li>
+<li><a href="#case-study">Case study</a></li>
+<li><a href="#pillars">Năng lực</a></li>
+
+<li><a href="#contact">Liên hệ</a></li>
+</ul>
+</div>
+</nav>
+<main id="main">
+<!-- ============== HERO ============== -->
+<header class="hero hero--cover" id="top">
+<div class="hero-cover__accent"></div>
+<div class="hero-cover__dot"></div>
+<div class="hero-cover__inner">
+<div class="hero-cover__text">
+<p class="hero-cover__kicker">PORTFOLIO · CREATIVE DEVELOPMENT · 2026</p>
+<h1 class="hero-cover__name">
+            Felix
+            <span class="outline">Phan</span>
+</h1>
+<p class="hero-cover__role">Phát triển nội dung &amp; Biên kịch</p>
+<p class="hero-cover__role-en">Creative Development &amp; Scriptwriting</p>
+<p class="hero-cover__lanes">Truyền hình thực tế · Branded Storytelling · Nội dung Social-first</p>
+<div class="hero-cover__divider"></div>
+<p class="hero-cover__positioning">
+            Tôi phát triển concept giải trí từ bước research đến xây dựng cấu trúc story shootable: audience insight, format logic, cast dynamics, tích hợp sponsor, và editorial moment cho short-form.<br/><br/>
+            Hiện đang tìm vị trí Scriptwriter hoặc Creative Planner.
+          </p>
+<div class="hero-cover__ctas">
+<a class="button button--primary" href="#case-study">Featured works</a>
+<a class="button button--ghost" href="https://drive.google.com/file/d/1JGmUbvukte4Ae7J4_CgYWzE-6chPNrVc/view" rel="noopener noreferrer" target="_blank">Tải CV →</a>
+</div>
+</div>
+<div class="hero-cover__portrait">
+<img alt="Chân dung Felix Phan, tone ấm, ngoài trời" height="800" src="images/hero-portrait.jpg" width="640"/>
+</div>
+</div>
+<div class="hero-cover__bar">
+<a href="mailto:felixphan.contact@gmail.com"><span class="lbl">Email</span>felixphan.contact@gmail.com</a>
+<a href="tel:+84936647704"><span class="lbl">Phone</span>+84 936 647 704</a>
+<a href="https://linkedin.com/in/felixphan" rel="noopener noreferrer" target="_blank"><span class="lbl">LinkedIn</span>linkedin.com/in/felixphan</a>
+<span><span class="lbl">Base</span>Hồ Chí Minh City</span>
+</div>
+</header>
+<!-- ============== WHY FELIX ============== -->
+<section aria-labelledby="why-title" class="section" id="why">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">TẠI SAO FELIX LÀ MỘT ỨNG VIÊN TIỀM NĂNG?</span>
+<h2 id="why-title">Bốn năng lực cốt lõi của Felix</h2>
+</div>
+<div class="snapshot-grid">
+<article class="snapshot-card">
+<div class="snapshot-card__num">01</div>
+<h3>Phát triển concept dẫn dắt bởi research</h3>
+<p>Felix phát triển mọi ý tưởng bắt đầu từ research, giúp đưa ra những hướng thực thi align đúng với thị hiếu của target audience và performance thực tế trên thị trường.<br/><br/>Các dự án nổi bật: MAGGI vs Barona social listening, phân tích V-Pop cultural hybridity qua lý thuyết Bourdieu, phân tích giá trị văn hóa của Gặp Nhau Cuối Năm qua lý thuyết Stuart Hall.</p>
+<a class="link-arrow" href="#case-study">Xem case study Quán Nhà Haha →</a>
+</article>
+<article class="snapshot-card">
+<div class="snapshot-card__num">02</div>
+<h3>Biên kịch đa định dạng</h3>
+<p>TVC 30 giây cho 4 brand, phim ngắn đoạt Giải Nhất, podcast longform 40+ phút, treatment unscripted cho gameshow đang phát sóng. Felix có khả năng thích ứng nhanh với mọi loại hình format.</p>
+<a class="link-arrow" href="#pillar-1">Xem biên kịch đa định dạng →</a>
+</article>
+<article class="snapshot-card">
+<div class="snapshot-card__num">03</div>
+<h3>Tích hợp sponsor với narrative logic</h3>
+<p>Dự án nổi bật: Trong case study Quán Nhà Haha, VCB DigiBank xuất hiện qua arc problem - bad solution - pushback - better solution, mà không phải hero giải quyết vấn đề. Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Trong dự án này tôi lồng ghép VCB như infrastructure đằng sau một gesture nhân văn.</p>
+<a class="link-arrow" href="#pillar-2">Xem brand storytelling →</a>
+</article>
+<article class="snapshot-card">
+<div class="snapshot-card__num">04</div>
+<h3>Kinh nghiệm production, điều phối sản xuất</h3>
+<p>2 campaign on-set (VinFast, TH true Milk), full production cycle cho chuỗi Reels VinFast VF5 × Kim Joo Yung, 7 sự kiện 50 đến 400 người tại MBE, và là Trưởng BTC của Triển lãm Nghệ thuật tương tác tại ĐH RMIT.</p>
+<a class="link-arrow" href="#pillar-4">Xem kinh nghiệm sản xuất →</a>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== FEATURED CASE STUDY ============== -->
+<section aria-labelledby="case-title" class="section section--alt" id="case-study">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">DỰ ÁN ĐỀ XUẤT · SPECULATIVE CASE STUDY</span>
+<h2 id="case-title">Case study</h2>
+</div>
+<article class="proof-card proof-card--featured">
+<div class="proof-card__media">
+<img alt="Cover treatment Quán Nhà Haha, chặng Huế, tone ấm" height="800" loading="lazy" src="images/qnh-Treatment.jpg" width="1200"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">SPECULATIVE EPISODE TREATMENT · QUÁN NHÀ HAHA</div>
+<h3>Bếp Nhà Haha Gặp Bếp Cung Đình</h3>
+<p class="proof-card__meta">Treatment đề xuất cho một tập đặc biệt tại Huế, với VCB DigiBank như sponsor giả định. Đây là dự án case study cá nhân, không được thực hiện cho bất kỳ tổ chức nào.</p>
+<dl>
+<dt>Vai trò</dt>
+<dd>Concept, research, treatment writing, sponsor integration design, short-form cutdown plan</dd>
+<dt>Vấn đề</dt>
+<dd>Làm sao đưa Nhã nhạc cung đình vào một format ăn uống unscripted mà không bị bảo tàng hóa, và làm sao tích hợp sponsor mà tăng được brand love một cách hiệu quả.</dd>
+<dt>Quyết định</dt>
+<dd>Xây episode engine quanh "đêm nghi thức trên sông Hương" với escalating friction (Hồi 1: nhịp sai, Hồi 2: học cách tiếp đãi, Hồi 3: một cử chỉ mới). Sponsor xuất hiện sau khi cast bị nghệ nhân pushback ý tưởng đầu tiên.</dd>
+<dt>Output</dt>
+<dd>Full case study 13 section gồm strategic brief, 3-act structure, cast function map, sponsor arc, 6 short-form cutdown, editorial output, production risk.</dd>
+<dt>Kỹ năng</dt>
+<dd>Research-led development · Cast-driven scene design · Sponsor narrative logic · Format awareness · Short-form thinking</dd>
+</dl>
+<div class="proof-card__footer">
+<a class="button button--primary" href="case-studies/quan-nha-haha.html">Xem full case study →</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- ============== PILLARS WRAPPER ============== -->
+<div id="pillars"></div>
+<!-- ============== PILLAR 1 ============== -->
+<section aria-labelledby="pillar-1-title" class="section" id="pillar-1">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">NĂNG LỰC I</span>
+<h2 id="pillar-1-title">Biên kịch đa định dạng</h2>
+<p>Mỗi format đòi hỏi một framework kể chuyện khác.<br/><br/>Từ TVC 30 giây cho thương hiệu lớn, đến phim ngắn độc lập, đến podcast long-form: mỗi loại hình đòi hỏi cách kể khác nhau. Những dự án dưới đây chứng minh khả năng thích ứng đó.</p>
+</div>
+<div class="card-grid card-grid--3">
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Still phim ngắn Mùa Hạ Của Chúng Tôi" height="500" loading="lazy" src="images/film-yenhoa.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">PHIM NGẮN · GIẢI NHẤT</div>
+<h3>Mùa Hạ Của Chúng Tôi</h3>
+<p class="proof-card__meta">Cuộc thi phim ngắn THPT Yên Hòa, 2022</p>
+<dl>
+<dt>Vai trò</dt><dd>Biên kịch, đạo diễn, dựng phim</dd>
+<dt>Vấn đề</dt><dd>Một câu chuyện coming-of-age mà không sa vào nostalgia trick.</dd>
+<dt>Quyết định</dt><dd>Cấu trúc 3 hồi với một twist không phải plot, là perspective shift.</dd>
+<dt>Output</dt><dd>Kịch bản văn học và phim ngắn.</dd>
+<dt>Kỹ năng</dt><dd>Story structure end-to-end · Production pipeline solo từ script đến final cut.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1OHnG1MviJQ8layw7ve0h_89JdDAPdxtA?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="PNJ Mùa Cưới 2024, frame phim ngắn brand" height="500" loading="lazy" src="images/film-pnj.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">PHIM NGẮN · BRAND STORYTELLING</div>
+<h3>PNJ Mùa Cưới 2024</h3>
+<p class="proof-card__meta">Script Writer, 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Script writer</dd>
+<dt>Vấn đề</dt><dd>Storytelling cảm xúc cho thương hiệu trang sức mà không bị sến.</dd>
+<dt>Quyết định</dt><dd>Đặt mạch truyện quanh một quyết định nhỏ, không phải proposal lớn.</dd>
+<dt>Output</dt><dd>Kịch bản văn học và Storyboard TVC.</dd>
+<dt>Kỹ năng</dt><dd>Brand storytelling restraint · Cân bằng commercial message và human story.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1iY9QtssZ1EflfxHWkMRDUmx5X6a86Kra?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem phim →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Podcast Sustainable Energy, ảnh chủ đề" height="500" loading="lazy" src="images/podcast-energy.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">PODCAST · LONG-FORM</div>
+<h3>Sustainable Energy Series</h3>
+<p class="proof-card__meta">Script Writer, Producer, Voice · 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Viết kịch bản, sản xuất, lồng tiếng.</dd>
+<dt>Vấn đề</dt><dd>Format 40+ phút phải giữ mạch truyện qua nhiều segment dài, không thể nương kịch tính video.</dd>
+<dt>Quyết định</dt><dd>Mỗi episode có một câu hỏi đóng và 3 câu hỏi mở, segment được cấu trúc theo arc cảm xúc.</dd>
+<dt>Output</dt><dd>Script và audio production cho series.</dd>
+<dt>Kỹ năng</dt><dd>Longform structure · Editorial discipline khi không có visual support.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/12VriM4x-aIlAnSOmtRzbgZVB6KAApTqZ?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem podcast →</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== PILLAR 2 ============== -->
+<section aria-labelledby="pillar-2-title" class="section section--alt" id="pillar-2">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">NĂNG LỰC II</span>
+<h2 id="pillar-2-title">Cân bằng brand objective và human story</h2>
+<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Bốn dự án dưới đây cho thấy tôi nghĩ về brand như một vai trò trong story, không phải một logo cuối frame.</p>
+</div>
+<div class="card-grid card-grid--2">
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Storyboard TVC, minh họa cho dự án BUV" height="500" loading="lazy" src="images/TVC-Storyboard.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">TVC STORYBOARD</div>
+<h3>BUV Creative Ideas: Data Science &amp; AI</h3>
+<p class="proof-card__meta">ForArt Film Production · Script Writer, Storyboard · 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Concept, script, storyboard.</dd>
+<dt>Vấn đề</dt><dd>Giới thiệu một ngành học mới cho phụ huynh và học sinh mà không bị "trường tốt vì có công nghệ".</dd>
+<dt>Quyết định</dt><dd>Đổi điểm vào từ "ngành này dạy gì" sang "ngành này thay đổi câu hỏi nào của xã hội".</dd>
+<dt>Output</dt><dd>Script và storyboard, vượt qua 4 vòng chỉnh sửa từ brief đến final.</dd>
+<dt>Kỹ năng</dt><dd>Concept translation cho academic brand · Storyboard logic.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/16Ztq8YRrKhiLU_CgmkwwyTGuRpdMkndF?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Storyboard TVC Hapacol" height="500" loading="lazy" src="images/tvc-hapacol.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">TVC STORYBOARD</div>
+<h3>Hapacol</h3>
+<p class="proof-card__meta">ForArt Film Production · Script Writer, Storyboard · 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Concept, script, storyboard.</dd>
+<dt>Vấn đề</dt><dd>Pharma brand cần emotional hook mà không vi phạm quy định quảng cáo dược.</dd>
+<dt>Quyết định</dt><dd>Chuyển focus từ "thuốc giải quyết triệu chứng" sang khoảnh khắc người chăm sóc nhận ra mình quên chính mình.</dd>
+<dt>Output</dt><dd>Script và storyboard.</dd>
+<dt>Kỹ năng</dt><dd>Brand storytelling trong constraint pháp lý.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1-6vp9rLS4MkdFyVgQ3_5Z0_l33Qj1EAN?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="MAGGI Tết storyboard moodboard" height="500" loading="lazy" src="images/maggi.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">TVC STORYBOARD · FMCG</div>
+<h3>Cleaning Frenzy &amp; MAGGI Tết 2026</h3>
+<p class="proof-card__meta">Script Writer, Storyboard · 2024 đến 2025</p>
+<dl>
+<dt>Vai trò</dt><dd>Concept, script, storyboard cho 2 campaign FMCG.</dd>
+<dt>Vấn đề</dt><dd>Tết campaign cho FMCG luôn cạnh tranh với 20+ brand cùng category cùng thời điểm.</dd>
+<dt>Quyết định</dt><dd>Đổi insight từ "bữa cơm sum vầy" (đã bão hòa) sang một moment cụ thể hơn (cooked into the script).</dd>
+<dt>Output</dt><dd>Script và storyboard cho cả hai brand.</dd>
+<dt>Kỹ năng</dt><dd>Cultural moment differentiation · FMCG narrative.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1CFrzP036DyAb9j6Qsgy1-P0GjKeK50IB?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem storyboard →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="VinFast VF5 × Kim Joo Yung, production Reels series" height="500" loading="lazy" src="images/production-vinfast.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">PRODUCTION + REELS SERIES</div>
+<h3>VinFast VF5 × Kim Joo Yung</h3>
+<p class="proof-card__meta">ForArt Film Production · Production Manager, Reels Series · 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Full production cycle cho chuỗi Reels (pre-production đến final delivery).</dd>
+<dt>Vấn đề</dt><dd>Talent quốc tế, brand automotive, format short-form, lịch shoot ngắn.</dd>
+<dt>Quyết định</dt><dd>Cut treatment dài thành 2 Reels riêng biệt, mỗi cái standalone, để không phụ thuộc episode order.</dd>
+<dt>Output</dt><dd>2 Reels hoàn chỉnh.</dd>
+<dt>Kỹ năng</dt><dd>Production management · Short-form thinking trong commercial context.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1VThOulfFODyUX-lEd-i1VUWdOgysqLAh?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem portfolio →</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== PILLAR 3 ============== -->
+<section aria-labelledby="pillar-3-title" class="section" id="pillar-3">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">NĂNG LỰC III</span>
+<h2 id="pillar-3-title">Nghiên cứu văn hóa &amp; Insight khán giả</h2>
+<p>Năm dự án dưới đây là bằng chứng tôi đã rèn năng lực đọc văn hóa và insight khán giả qua academic theory và industry data, đồng thời biết cách dịch research thành content direction.</p>
+</div>
+<div class="card-grid card-grid--3">
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Cover phân tích Gặp Nhau Cuối Năm" height="500" loading="lazy" src="images/gnkn-casestudy.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">PHÂN TÍCH CHƯƠNG TRÌNH</div>
+<h3>Gặp Nhau Cuối Năm: Critical Case Study</h3>
+<p class="proof-card__meta">RMIT · Researcher, Analyst · 2023</p>
+<dl>
+<dt>Vai trò</dt><dd>Solo researcher, viết case study analysis.</dd>
+<dt>Vấn đề</dt><dd>Tại sao một chương trình giải trí có thể critique quyền lực mà vẫn được phát sóng prime-time.</dd>
+<dt>Quyết định</dt><dd>Đọc qua khung encoding-decoding của Stuart Hall: tách layer encoding, preferred reading, negotiated, oppositional.</dd>
+<dt>Output</dt><dd>Report.</dd>
+<dt>Kỹ năng</dt><dd>Tôi có thể decode tại sao audience reaction xảy ra, không chỉ describe nó.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/file/d/1h_esiMrllZ9829aWPdjUjrEWUm2GvNQw/view?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem nghiên cứu →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Phân tích V-Pop folk × western, moodboard" height="500" loading="lazy" src="images/Folk-Western-vpop.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">NGHIÊN CỨU VĂN HÓA ĐẠI CHÚNG</div>
+<h3>Folk × Western Elements in V-Pop Music Videos</h3>
+<p class="proof-card__meta">RMIT · Co-Researcher · 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Co-researcher, phân tích case "Vũ Trụ Cò Anh" của Phương Mỹ Chi.</dd>
+<dt>Vấn đề</dt><dd>Tại sao MV V-Pop hiện đại pha folk Việt thành công, trong khi nhiều brand thử folk lại bị nhìn như "mượn".</dd>
+<dt>Quyết định</dt><dd>Đọc qua khung cultural capital của Bourdieu, identify mechanism của hybridity hợp lý.</dd>
+<dt>Output</dt><dd>Report.</dd>
+<dt>Kỹ năng</dt><dd>Tôi có thể identify cultural tension và turn nó thành content direction.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://www.canva.com/design/DAHKTkbTOjo/W_ABY2H5z5-VSm5utBqOsA/view?utm_content=DAHKTkbTOjo&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h0827c1f054" rel="noopener noreferrer" target="_blank">Xem nghiên cứu →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="MAGGI competitive analysis, data chart minh họa" height="500" loading="lazy" src="images/maggi.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">SOCIAL LISTENING &amp; INSIGHT</div>
+<h3>MAGGI: Competitive &amp; Consumer Analysis</h3>
+<p class="proof-card__meta">RMIT COMM2649 · Researcher · 2025</p>
+<dl>
+<dt>Vai trò</dt><dd>Solo researcher, kéo dữ liệu từ Fanpage Karma, build chart.</dd>
+<dt>Vấn đề</dt><dd>MAGGI và Barona cùng category nhưng audience react khác nhau.</dd>
+<dt>Quyết định</dt><dd>Identify keyword gap, MAGGI tập trung sản phẩm, Barona thu hút bằng trải nghiệm. Đề xuất chiến dịch dựa trên gap đó.</dd>
+<dt>Output</dt><dd>Report.</dd>
+<dt>Kỹ năng</dt><dd>Tôi có thể turn social data thành campaign direction cụ thể.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1kkAVvXH7BbVC1XvEaSmt6q9WWWQh_zAk?usp=drive_link" rel="noopener noreferrer" target="_blank">Xem báo cáo →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Equal in Ao Dai, editorial spread minh họa" height="500" loading="lazy" src="images/magazine-gender.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">NGHIÊN CỨU VĂN HÓA &amp; EDITORIAL</div>
+<h3>Equal in Ao Dai (Gender Equality Magazine)</h3>
+<p class="proof-card__meta">Creative Director, Editorial Research · 2023</p>
+<dl>
+<dt>Vai trò</dt><dd>Creative Director.</dd>
+<dt>Vấn đề</dt><dd>Làm magazine bình đẳng giới không sa vào lecture mode.</dd>
+<dt>Quyết định</dt><dd>Đặt áo dài làm visual anchor và đảo ngược chuẩn gender expression.</dd>
+<dt>Output</dt><dd>Concept deck, editorial spread, photo shoot.</dd>
+<dt>Kỹ năng</dt><dd>Editorial direction · Cultural concept translation thành visual.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://heyzine.com/flip-book/b9a49ece03.html" rel="noopener noreferrer" target="_blank">Xem magazine →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media"><img alt="Patriotic Rap as New Red Music, research proposal cover" height="500" loading="lazy" src="images/research-patriotic-rap.jpg" width="800"/></div>
+<div class="proof-card__body">
+<div class="proof-card__label">NGHIÊN CỨU VĂN HÓA &amp; XÃ HỘI</div>
+<h3>Patriotic Rap as New Red Music</h3>
+<p class="proof-card__meta">Research proposal · 2023</p>
+<dl>
+<dt>Vai trò</dt><dd>Solo research proposal.</dd>
+<dt>Vấn đề</dt><dd>Tại sao rap yêu nước (Đen Vâu, Suboi, Đạt Maniac) resonate với Gen Z hơn nhạc đỏ truyền thống.</dd>
+<dt>Quyết định</dt><dd>Đề xuất framework "kế thừa chức năng" thay vì "kế thừa hình thức".</dd>
+<dt>Output</dt><dd>Research proposal.</dd>
+<dt>Kỹ năng</dt><dd>Decode generational shift trong cách tiếp nhận nội dung patriotic.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/file/d/1M_brfJmCpQNmpbbaYOb0KCP322qdaNUR/view" rel="noopener noreferrer" target="_blank">Xem nghiên cứu →</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== PILLAR 4 ============== -->
+<section aria-labelledby="pillar-4-title" class="section section--alt" id="pillar-4">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">NĂNG LỰC IV</span>
+<h2 id="pillar-4-title">Kinh nghiệm production, điều phối sản xuất</h2>
+<p>Biên kịch tốt biết gì sẽ break khi quay. Bốn năm phối hợp on-set, event production, exhibition, và social-first content cho tôi sự fluency đó.</p>
+</div>
+<div aria-label="Số liệu production" class="metric-strip" role="list">
+<span role="listitem">316 lượt tham quan triển lãm</span>
+<span role="listitem">34,500+ tương tác social</span>
+<span role="listitem">7 sự kiện 50 đến 400 người</span>
+<span role="listitem">60% giảm prep-time của Director</span>
+<span role="listitem">2 brand campaign on-set</span>
+<span role="listitem">270 người lữ hành điều phối</span>
+<span role="listitem">18M VND gọi vốn</span>
+<span role="listitem">40+ SOPs xây dựng</span>
+</div>
+<div class="card-grid card-grid--2">
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="On-set ForArt Film Production, trường quay" height="500" loading="lazy" src="images/ForArt.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">ON-SET PRODUCTION · COMMERCIAL</div>
+<h3>ForArt Film Production</h3>
+<p class="proof-card__meta">Creative Intern · 3/2024 đến 7/2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Điều phối trường quay, tracking source đầu ra, quản lý production cycle.</dd>
+<dt>Vấn đề</dt><dd>2 campaign brand (VinFast, TH true Milk) cùng thời điểm, source và timeline conflict.</dd>
+<dt>Quyết định</dt><dd>Build tracking sheet tách 2 stream song song với daily checkpoint.</dd>
+<dt>Output</dt><dd>2 campaign delivered on-scope on-time; chuỗi Reels VinFast VF5 × Kim Joo Yung từ pre-production đến final delivery.</dd>
+<dt>Kỹ năng</dt><dd>Production coordination · Timeline tracking · QC trên set.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://www.facebook.com/share/p/1952CNpUKZ/" rel="noopener noreferrer" target="_blank">Xem portfolio →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Triển lãm Little Me, khu vực tương tác" height="500" loading="lazy" src="images/Little-Me.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">LIVE PRODUCTION · TRIỂN LÃM</div>
+<h3>Little Me, RMIT Mental Wellness Exhibition</h3>
+<p class="proof-card__meta">Project Lead, Founder · 2023 đến 2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Trưởng ban tổ chức (27 người), founder.</dd>
+<dt>Vấn đề</dt><dd>Triển lãm sức khỏe tâm thần thường bị né tránh hoặc bị medical hóa.</dd>
+<dt>Quyết định</dt><dd>Format tương tác (visitor để lại note vô danh), không lecture, không infographic.</dd>
+<dt>Output</dt><dd>316 lượt tham quan trong 3 ngày · 34,500+ tương tác social · 18M VND gọi vốn · 6,96% tỷ lệ quay lại.</dd>
+<dt>Kỹ năng</dt><dd>Live production · Vận hành 3 ngày liên tục · Team 27 người · Fundraising.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1FiBLLSjVYBPSGc2WvJgVemFod2fg4s49" rel="noopener noreferrer" target="_blank">Xem triển lãm →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="RMIT Student Council social content, ảnh kênh" height="500" loading="lazy" src="images/rmit-social.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">MULTI-PLATFORM CONTENT</div>
+<h3>RMIT Student Council Social Channels</h3>
+<p class="proof-card__meta">Director of TikTok &amp; Instagram · 10/2022 đến 12/2023</p>
+<dl>
+<dt>Vai trò</dt><dd>Director kênh social, content planner, creator.</dd>
+<dt>Vấn đề</dt><dd>Council social channels không có voice riêng, content bị stuck ở announcement mode.</dd>
+<dt>Quyết định</dt><dd>Tái cấu trúc kênh theo format: long-form YouTube và short-form TikTok/Reels, mỗi piece phải hoạt động trên cả hai.</dd>
+<dt>Output</dt><dd>Video viral đầu tiên của tổ chức trên TikTok; kênh social được handover với playbook.</dd>
+<dt>Kỹ năng</dt><dd>Multi-platform content thinking · Social-first format design.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://www.tiktok.com/@rmitstudentcouncilhanoi" rel="noopener noreferrer" target="_blank">Xem TikTok →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="Sự kiện MBE Mien Bac Event, không gian doanh nghiệp" height="500" loading="lazy" src="images/mbe.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">EVENT COORDINATION · QUY MÔ LỚN</div>
+<h3>Mien Bac Event (MBE)</h3>
+<p class="proof-card__meta">Trợ lý Giám đốc (Thực tập) · 2/2026 đến 5/2026</p>
+<dl>
+<dt>Vai trò</dt><dd>Trợ lý Giám đốc, điều phối logistics.</dd>
+<dt>Vấn đề</dt><dd>7 sự kiện doanh nghiệp 50 đến 400 người, Director ngập trong prep work.</dd>
+<dt>Quyết định</dt><dd>Build SOP và checklist system, take over toàn bộ prep coordination.</dd>
+<dt>Output</dt><dd>7 sự kiện delivered · 270 người lữ hành điều phối tại Hà Nội · 60% giảm thời gian prep của Director · 6 hạng mục hậu cần on-time.</dd>
+<dt>Kỹ năng</dt><dd>Event logistics · Vendor coordination · SOP design.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://sukienmienbac.vn/su-kien-mien-bac-event/" rel="noopener noreferrer" target="_blank">Xem công ty →</a></div></div>
+</article>
+<article class="proof-card">
+<div class="proof-card__media">
+<img alt="EMPACTS, tổ chức kết nối startup ecosystem for SDGs" height="500" loading="lazy" src="images/empacts-org.jpg" width="800"/>
+</div>
+<div class="proof-card__body">
+<div class="proof-card__label">ORG BUILDING · NONPROFIT</div>
+<h3>EMPACTS, Startup Ecosystem for SDGs</h3>
+<p class="proof-card__meta">Founder, Vice-president · 5/2024 đến 12/2024</p>
+<dl>
+<dt>Vai trò</dt><dd>Founder, VP, designer of org infrastructure.</dd>
+<dt>Vấn đề</dt><dd>Kết nối social enterprise giai đoạn đầu với hệ sinh thái SDGs Việt Nam mà không bị NGO-mode chậm.</dd>
+<dt>Quyết định</dt><dd>Build infrastructure cho seamless handover ngay từ đầu (6 phòng ban, 21 vai trò, 40+ SOPs).</dd>
+<dt>Output</dt><dd>Tổ chức 54 thành viên · Phased budget 2.59B VND · 4.65/5 peer eval score · Handover hoàn tất.</dd>
+<dt>Kỹ năng</dt><dd>Org design · Strategic planning · Cross-functional delivery.</dd>
+</dl>
+<div class="proof-card__footer"><a class="link-arrow" href="https://www.facebook.com/empacts.org/" rel="noopener noreferrer" target="_blank">Xem tổ chức →</a></div></div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== ABOUT ============== -->
+
+<!-- ============== CONTACT ============== -->
+<section aria-labelledby="contact-title" class="section section--alt" id="contact">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">LIÊN HỆ</span>
+<h2 id="contact-title">Kết nối với Felix Phan</h2>
+</div>
+<div class="contact__grid">
+<div class="contact-card">
+<dl>
+<dt>Email</dt>
+<dd><a href="mailto:felixphan.contact@gmail.com">felixphan.contact@gmail.com</a></dd>
+<dt>Phone</dt>
+<dd>+84 936 647 704</dd>
+<dt>LinkedIn</dt>
+<dd><a href="https://linkedin.com/in/felixphan" rel="noopener noreferrer" target="_blank">linkedin.com/in/felixphan</a></dd>
+<dt>CV</dt>
+<dd><a href="https://drive.google.com/file/d/1JGmUbvukte4Ae7J4_CgYWzE-6chPNrVc/view" rel="noopener noreferrer" target="_blank">Tải CV →</a></dd>
+<dt>Base</dt>
+<dd>Hồ Chí Minh City, Vietnam</dd>
+</dl>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+      Felix Phan · Portfolio 2026 · Updated June 2026
+    </div>
+</footer>
+<script defer="" src="assets/js/main.js"></script>
+</body>
+</html>

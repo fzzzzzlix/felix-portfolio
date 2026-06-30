@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quán Nhà Haha, chặng Huế · Speculative Episode Treatment · Felix Phan</title>
+<meta content="Speculative episode treatment cho Quán Nhà Haha tại Huế, bao gồm three-act structure, cast function map, sponsor arc, và 6 short-form cutdown. Portfolio sample của Felix Phan." name="description"/>
+<meta content="Felix Phan" name="author"/>
+<meta content="#7a1c1c" name="theme-color"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<style>
+    /* Case study readability upgrade, added to avoid the page turning into a polite wall of text. */
+    body {
+      background: var(--color-paper, #faf7f2);
+    }
+
+    .cs-toc {
+      position: sticky;
+      top: 64px;
+      z-index: 40;
+      background: rgba(250, 247, 242, .94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-rule, #d9d1c0);
+    }
+
+    .cs-toc__inner {
+      display: flex;
+      gap: .6rem;
+      overflow-x: auto;
+      padding: .8rem 0;
+      scrollbar-width: thin;
+    }
+
+    .cs-toc__inner a {
+      flex: 0 0 auto;
+      border: 1px solid var(--color-rule, #d9d1c0);
+      border-radius: 999px;
+      padding: .42rem .72rem;
+      background: rgba(255, 255, 255, .62);
+      color: var(--color-ink-soft, #2a2a2a);
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .76rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cs-toc__inner a:hover {
+      color: var(--color-crimson, #7a1c1c);
+      border-color: var(--color-crimson, #7a1c1c);
+    }
+
+    .cs-cover {
+      position: relative;
+      overflow: hidden;
+      background: #181818;
+      color: #fff;
+      padding: clamp(4.5rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+      border-bottom: 0;
+    }
+
+    .cs-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 76% 22%, rgba(122, 28, 28, .5), transparent 38%),
+        linear-gradient(155deg, rgba(74, 18, 18, .62), transparent 58%);
+      pointer-events: none;
+    }
+
+    .cs-cover::after {
+      content: '';
+      position: absolute;
+      right: 3rem;
+      bottom: 2.2rem;
+      width: 180px;
+      height: 180px;
+      background-image: radial-gradient(circle, rgba(201, 169, 110, .2) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: .7;
+      pointer-events: none;
+    }
+
+    .cs-cover .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .cs-cover__eyebrow {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .76rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #c9a96e;
+      margin-bottom: 1.35rem;
+    }
+
+    .cs-cover h1 {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(3.7rem, 8vw, 7.5rem);
+      line-height: .9;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin: 0 0 1.1rem;
+    }
+
+    .cs-cover__sub {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .84rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(201, 169, 110, .82);
+      margin: 0 0 1.5rem;
+    }
+
+    .cs-cover__premise {
+      max-width: 620px;
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, .82);
+      margin: 0 0 1.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid #c9a96e;
+    }
+
+    .cs-cover__cast {
+      color: rgba(255, 255, 255, .55);
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .86rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .cs-cover__image {
+      margin: 0;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      overflow: hidden;
+      background: #0f0f0f;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .34);
+    }
+
+    .cs-cover__image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .cs-glance {
+      margin-top: -1px;
+      background: var(--color-paper-deep, #f2ede3);
+      border-bottom: 1px solid var(--color-rule, #d9d1c0);
+    }
+
+    .cs-glance__grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--color-rule, #d9d1c0);
+      border-inline: 1px solid var(--color-rule, #d9d1c0);
+    }
+
+    .cs-glance__item {
+      background: var(--color-paper, #faf7f2);
+      padding: 1.35rem 1.2rem;
+    }
+
+    .cs-glance__label {
+      display: block;
+      margin-bottom: .45rem;
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-crimson, #7a1c1c);
+      font-weight: 700;
+    }
+
+    .cs-glance__item p {
+      margin: 0;
+      color: var(--color-ink-soft, #2a2a2a);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+
+    .cs-section {
+      padding: clamp(3.8rem, 7vw, 6.5rem) 0;
+      border-bottom: 1px solid var(--color-rule-soft, #e8e2d2);
+    }
+
+    .cs-section:nth-of-type(even) {
+      background: rgba(242, 237, 227, .55);
+    }
+
+    .cs-section > .container {
+      display: grid;
+      grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .cs-section__head {
+      position: sticky;
+      top: 132px;
+      align-self: start;
+      margin: 0;
+    }
+
+    .cs-section__head h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      margin-top: .85rem;
+    }
+
+    .cs-section .container > :not(.cs-section__head) {
+      grid-column: 2;
+    }
+
+    .cs-section p {
+      max-width: 760px;
+      color: var(--color-ink-soft, #2a2a2a);
+    }
+
+    .cs-dl,
+    .cs-editorial dl {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      border: 1px solid var(--color-rule, #d9d1c0);
+      background: var(--color-paper, #faf7f2);
+    }
+
+    .cs-dl dt,
+    .cs-editorial dt {
+      padding: 1rem 1.1rem;
+      border-top: 1px solid var(--color-rule-soft, #e8e2d2);
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .76rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-crimson, #7a1c1c);
+      background: rgba(122, 28, 28, .035);
+    }
+
+    .cs-dl dd,
+    .cs-editorial dd {
+      padding: 1rem 1.1rem;
+      border-top: 1px solid var(--color-rule-soft, #e8e2d2);
+      margin: 0;
+      color: var(--color-ink-soft, #2a2a2a);
+    }
+
+    .cs-dl dt:first-child,
+    .cs-dl dt:first-child + dd,
+    .cs-editorial dt:first-child,
+    .cs-editorial dt:first-child + dd {
+      border-top: 0;
+    }
+
+    .cs-why,
+    .cs-tension,
+    .cs-sponsor,
+    .cs-cuts,
+    .cs-risks,
+    .cs-proves,
+    .cs-cast {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cs-why {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cs-tension,
+    .cs-risks,
+    .cs-proves,
+    .cs-cast {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cs-sponsor,
+    .cs-cuts {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cs-why__col,
+    .cs-tension__card,
+    .cs-sponsor__step,
+    .cs-cut,
+    .cs-risk,
+    .cs-prove,
+    .cs-cast__card,
+    .cs-act {
+      background: var(--color-paper, #faf7f2);
+      border: 1px solid var(--color-rule, #d9d1c0);
+      border-top: 3px solid var(--color-crimson, #7a1c1c);
+      padding: clamp(1.15rem, 2vw, 1.6rem);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .02);
+    }
+
+    .cs-why__col h3,
+    .cs-tension__card h3,
+    .cs-sponsor__step h3,
+    .cs-cut h3,
+    .cs-risk h3,
+    .cs-prove h3,
+    .cs-cast__card h3,
+    .cs-act h3 {
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      margin-top: 0;
+      margin-bottom: .75rem;
+    }
+
+    .cs-tension__card--wrong {
+      opacity: .72;
+      border-top-color: var(--color-gold, #8a7a4a);
+    }
+
+    .cs-tension__q {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.35;
+      color: var(--color-crimson, #7a1c1c);
+    }
+
+    .cs-tension__card--wrong .cs-tension__q {
+      text-decoration: line-through;
+      color: var(--color-ink-muted, #5a5650);
+    }
+
+    .callout {
+      border-left: 4px solid var(--color-crimson, #7a1c1c);
+      background: var(--color-paper-deep, #f2ede3);
+      padding: clamp(1.35rem, 3vw, 2rem);
+      max-width: 820px;
+    }
+
+    .callout p {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+      line-height: 1.35;
+      margin: 0;
+      color: var(--color-ink, #1a1a1a);
+    }
+
+    .callout--center {
+      text-align: center;
+      border-left: 0;
+      border-top: 4px solid var(--color-crimson, #7a1c1c);
+    }
+
+    .cs-act {
+      margin-bottom: 1rem;
+    }
+
+    .cs-act__num {
+      display: inline-block;
+      margin-bottom: .7rem;
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-crimson, #7a1c1c);
+    }
+
+    .cs-act__meta {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .86rem;
+      color: var(--color-ink-muted, #5a5650);
+      border-bottom: 1px solid var(--color-rule-soft, #e8e2d2);
+      padding-bottom: 1rem;
+      margin-bottom: 0;
+    }
+
+    .cs-beats {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cs-beats li {
+      position: relative;
+      padding: 1rem 0 1rem 4.5rem;
+      border-bottom: 1px solid var(--color-rule-soft, #e8e2d2);
+      color: var(--color-ink-soft, #2a2a2a);
+    }
+
+    .cs-beats li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .cs-beats li::before {
+      content: attr(data-beat);
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      min-width: 3.25rem;
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .76rem;
+      font-weight: 700;
+      color: var(--color-crimson, #7a1c1c);
+      letter-spacing: .06em;
+    }
+
+    .cs-cast__role,
+    .cs-cut__meta {
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--color-gold, #8a7a4a);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cs-cast__scene,
+    .cs-risk__fix {
+      background: rgba(242, 237, 227, .82);
+      border-left: 3px solid var(--color-gold, #8a7a4a);
+      padding: 1rem;
+      color: var(--color-ink-soft, #2a2a2a);
+      line-height: 1.65;
+    }
+
+    .cs-cut__num,
+    .cs-prove__num {
+      font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif);
+      font-size: 2rem;
+      color: var(--color-gold, #8a7a4a);
+      line-height: 1;
+      margin-bottom: .75rem;
+    }
+
+    .cs-closing {
+      max-width: 820px;
+      margin-inline: auto;
+      text-align: center;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid var(--color-rule, #d9d1c0);
+      background: var(--color-paper-deep, #f2ede3);
+    }
+
+    .site-footer {
+      padding: 1.4rem 0;
+      background: #181818;
+      color: rgba(255, 255, 255, .5);
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .cs-cover .container,
+      .cs-section > .container {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-section .container > :not(.cs-section__head) {
+        grid-column: auto;
+      }
+
+      .cs-section__head {
+        position: static;
+      }
+
+      .cs-glance__grid,
+      .cs-why,
+      .cs-sponsor,
+      .cs-cuts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .cs-cover {
+        padding-top: 3.2rem;
+      }
+
+      .cs-glance__grid,
+      .cs-why,
+      .cs-tension,
+      .cs-sponsor,
+      .cs-cuts,
+      .cs-risks,
+      .cs-proves,
+      .cs-cast {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-dl,
+      .cs-editorial dl {
+        grid-template-columns: 1fr;
+      }
+
+      .cs-dl dt,
+      .cs-editorial dt {
+        padding-bottom: .2rem;
+      }
+
+      .cs-dl dd,
+      .cs-editorial dd {
+        padding-top: .2rem;
+      }
+
+      .cs-beats li {
+        padding-left: 0;
+        padding-top: 2.5rem;
+      }
+    }
+  
+
+    /* Fix text flow for Insight and Mechanics, no more polite wall-of-text punishment. */
+    .cs-prose-pack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .cs-insight-grid,
+    .cs-mechanics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .cs-mini-card {
+      background: var(--color-paper, #faf7f2);
+      border: 1px solid var(--color-rule, #d9d1c0);
+      border-top: 3px solid var(--color-crimson, #7a1c1c);
+      padding: 1.25rem;
+      min-height: 100%;
+    }
+
+    .cs-mini-card__label {
+      display: block;
+      margin-bottom: .65rem;
+      font-family: var(--font-ui, Inter, sans-serif);
+      font-size: .7rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--color-gold, #8a7a4a);
+      font-weight: 700;
+    }
+
+    .cs-mini-card p {
+      max-width: none;
+      margin: 0;
+      color: var(--color-ink-soft, #2a2a2a);
+      line-height: 1.68;
+    }
+
+    #insight .callout,
+    #mechanics .callout {
+      margin-top: 1rem;
+    }
+
+    #mechanics .cs-mechanics-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 900px) {
+      .cs-insight-grid,
+      .cs-mechanics-grid,
+      #mechanics .cs-mechanics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua điều hướng, đến nội dung chính</a>
+<nav aria-label="Điều hướng chính" class="nav">
+<div class="nav__inner">
+<a class="nav__brand" href="../index.html">
+        ← Felix Phan
+        <span class="nav__brand-sub">Quay lại Portfolio</span>
+</a>
+<button aria-controls="nav-links" aria-expanded="false" class="nav__toggle" type="button">Menu</button>
+<ul class="nav__links" id="nav-links">
+<li><a href="../index.html">Portfolio</a></li>
+<li><a href="#brief">Brief</a></li>
+<li><a href="#structure">Structure</a></li>
+<li><a href="#sponsor">Sponsor</a></li>
+<li><a href="#cutdowns">Cutdowns</a></li>
+<li><a href="#contact-cs">Liên hệ</a></li>
+</ul>
+</div>
+</nav>
+<!-- TOC pills -->
+<div aria-label="Mục lục case study" class="cs-toc">
+<div class="container">
+<div class="cs-toc__inner">
+<a href="#brief">Brief</a>
+<a href="#context">Context</a>
+<a href="#insight">Insight</a>
+<a href="#tension">Tension</a>
+<a href="#engine">Engine</a>
+<a href="#structure">Structure</a>
+<a href="#cast">Cast</a>
+<a href="#mechanics">Mechanics</a>
+<a href="#sponsor">Sponsor</a>
+<a href="#cutdowns">Cutdowns</a>
+<a href="#editorial">Editorial</a>
+<a href="#risks">Risks</a>
+<a href="#proves">Proves</a>
+<a href="#contact-cs">Contact</a>
+</div>
+</div>
+</div>
+<main id="main">
+<!-- ============== COVER ============== -->
+<header class="cs-cover" id="cover">
+<div class="container">
+<div class="cs-cover__copy">
+<div class="cs-cover__eyebrow">SPECULATIVE EPISODE TREATMENT · QUÁN NHÀ HAHA · CHẶNG HUẾ</div>
+<h1>Bếp Nhà Haha<br/>Gặp Bếp<br/>Cung Đình</h1>
+<p class="cs-cover__sub">Thuyền Rồng · Sông Hương · Nhã Nhạc · Một Cử Chỉ Mới</p>
+<p class="cs-cover__premise">"Khi sự cảm ơn trở thành một cú scan, làm sao giữ được cử chỉ của con người?"</p>
+<p class="cs-cover__cast">
+            Cast giả định: Jun Phạm · Rhymastic · Bùi Công Nam · Ngọc Thanh Tâm · Duy Khánh<br/>
+            Speculative, không phải sản phẩm chính thức của Yeah1, VCB DigiBank, VTV, Mango+, hay Quán Nhà Haha.
+          </p>
+</div>
+<figure class="cs-cover__image">
+<img alt="Key visual Bếp Nhà Haha Gặp Bếp Cung Đình, case study chặng Huế" height="900" loading="eager" src="../images/qnh-Treatment.jpg" width="1600"/>
+</figure>
+</div>
+</header>
+<!-- ============== AT A GLANCE ============== -->
+<section aria-label="Tóm tắt nhanh case study" class="cs-glance">
+<div class="container">
+<div class="cs-glance__grid">
+<div class="cs-glance__item">
+<span class="cs-glance__label">Format</span>
+<p>Ăn uống, travel, talkshow, unscripted.</p>
+</div>
+<div class="cs-glance__item">
+<span class="cs-glance__label">Vai trò Felix</span>
+<p>Concept, research, treatment, sponsor arc, cutdown plan.</p>
+</div>
+<div class="cs-glance__item">
+<span class="cs-glance__label">Core tension</span>
+<p>Khi sự cảm ơn thành một cú scan, giữ gesture người thế nào?</p>
+</div>
+<div class="cs-glance__item">
+<span class="cs-glance__label">Sponsor logic</span>
+<p>VCB là infrastructure, không phải hero.</p>
+</div>
+<div class="cs-glance__item">
+<span class="cs-glance__label">Proof</span>
+<p>3-act structure, cast map, scene mechanics, risks, short-form outputs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ============== 01 BRIEF ============== -->
+<section aria-labelledby="brief-title" class="cs-section" id="brief">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">01 · BRIEF</span>
+<h2 id="brief-title">Brief chiến lược</h2>
+</div>
+<dl class="cs-dl">
+<dt>Show</dt><dd>Quán Nhà Haha (đang phát sóng trên VTV, Yeah1, Mango+)</dd>
+<dt>Chặng giả định</dt><dd>Huế</dd>
+<dt>Sponsor đề xuất</dt><dd>VCB DigiBank</dd>
+<dt>Format</dt><dd>Ăn uống và talkshow và travel, unscripted</dd>
+<dt>Đối tượng</dt><dd>18 đến 35 tuổi, Gen Z và early millennial Việt Nam</dd>
+<dt>Mục tiêu tập</dt><dd>Nâng cấp tone từ ấm cúng street-level lên một đêm nghi thức trên sông, không làm mất DNA show</dd>
+</dl>
+</div>
+</section>
+<!-- ============== 02 CONTEXT ============== -->
+<section aria-labelledby="context-title" class="cs-section" id="context">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">02 · CONTEXT</span>
+<h2 id="context-title">Tại sao show này, tại sao Huế, tại sao bây giờ</h2>
+</div>
+<div class="cs-why">
+<article class="cs-why__col">
+<h3>Why this show</h3>
+<p>Quán Nhà Haha cần một moment lớn trong season để tạo virality và prestige. Format ăn uống và cast và travel là môi trường tốt cho moment đó, nhưng cần một episode bước ra khỏi tone đường phố quen thuộc, lên một level nghi thức, mà không phá DNA.</p>
+</article>
+<article class="cs-why__col">
+<h3>Why Huế</h3>
+<p>Huế có một resource không thành phố nào khác có: di sản phi vật thể UNESCO sống được trên không gian visual mạnh (sông Hương, thuyền Rồng, hoàng cung). Nhã nhạc cung đình là di sản phi vật thể đầu tiên của Việt Nam được UNESCO ghi danh (2003). Nhưng prestige toàn cầu không tự động đem kế sinh nhai cho nghệ nhân. Tension đó là gap để brand bước vào.</p>
+</article>
+<article class="cs-why__col">
+<h3>Why now</h3>
+<p>2026: cashless infrastructure tại Việt Nam đã đủ phổ biến để brand thanh toán số như VCB DigiBank là một phần đời sống. Nhưng cashless không thay được nghi thức cảm xúc. Đó là chỗ tập này khai thác. Brand không "đẩy" cashless, brand giúp một nghi thức cũ tiếp tục sống trong đời sống mới.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== 03 INSIGHT ============== -->
+<section aria-labelledby="insight-title" class="cs-section" id="insight">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">03 · INSIGHT</span>
+<h2 id="insight-title">Khán giả 18 đến 35 đang nói gì</h2>
+</div>
+
+
+
+
+<div class="cs-prose-pack"><div class="cs-insight-grid"><article class="cs-mini-card"><span class="cs-mini-card__label">Audience need</span><p>Khán giả 18 đến 35 vừa muốn ăn ngon, vừa muốn cảm được gì đó văn hóa, nhưng không chịu được lecture mode.</p></article><article class="cs-mini-card"><span class="cs-mini-card__label">Reaction pattern</span><p>Họ phản ứng tốt với cast họ đã yêu, đặt vào tình huống cast hơi vụng về, thất bại, rồi cố gắng đúng.</p></article><article class="cs-mini-card"><span class="cs-mini-card__label">Gesture insight</span><p>Họ scan QR mỗi ngày nhưng vẫn cảm động khi thấy một gesture vật lý: cầm hoa, gật đầu, trao tay. Cashless không xóa nhu cầu gesture, nó làm gesture trở thành lựa chọn riêng.</p></article></div><div class="callout"><p>"Tôi không cần show dạy tôi về văn hóa. Tôi cần show cho tôi cảm được tại sao văn hóa đó vẫn còn quan trọng."</p></div></div></div>
+</section>
+<!-- ============== 04 TENSION ============== -->
+<section aria-labelledby="tension-title" class="cs-section" id="tension">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">04 · TENSION</span>
+<h2 id="tension-title">Mâu thuẫn dẫn dắt tập</h2>
+</div>
+<div class="cs-tension">
+<article class="cs-tension__card cs-tension__card--wrong">
+<h3>Câu hỏi sai (đã loại)</h3>
+<p class="cs-tension__q">"Làm sao tip cho nghệ nhân khi không có tiền mặt?"</p>
+<p>Câu hỏi này nhỏ và transactional. Nó dẫn đến product placement nhanh, không dẫn đến story.</p>
+</article>
+<article class="cs-tension__card cs-tension__card--right">
+<h3>Câu hỏi đúng</h3>
+<p class="cs-tension__q">"Khi sự cảm ơn trở thành một cú scan, làm sao giữ được cử chỉ của con người?"</p>
+<p>Câu hỏi này lớn hơn, emotional hơn, và mở ra một episode arc thật.</p>
+</article>
+</div>
+<div class="callout callout--center">
+<p>Công nghệ không thay thế nghi thức.<br/>Nó giúp nghi thức tiếp tục sống trong một đời sống mới.</p>
+</div>
+</div>
+</section>
+<!-- ============== 05 ENGINE ============== -->
+<section aria-labelledby="engine-title" class="cs-section" id="engine">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">05 · ENGINE</span>
+<h2 id="engine-title">Mạch chạy của tập</h2>
+</div>
+<div class="callout">
+<p>Một dàn cast hiện đại, ồn ào, hơi vô kỷ luật, thử tổ chức một đêm nghi thức Huế trên sông Hương. Họ phát hiện rằng giữ truyền thống không phải là copy quá khứ, mà là bảo vệ cái cử chỉ làm cho truyền thống đó có ý nghĩa.</p>
+</div>
+<p>Đây là episode engine, không phải plot. Engine có thể tạo nhiều moment, không bị stuck một beat duy nhất. Cast thật sẽ improvise quanh engine, không đọc script.</p>
+</div>
+</section>
+<!-- ============== 06 STRUCTURE ============== -->
+<section aria-labelledby="structure-title" class="cs-section" id="structure">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">06 · STRUCTURE</span>
+<h2 id="structure-title">Ba hồi, một ngày trên sông</h2>
+</div>
+<article class="cs-act">
+<div class="cs-act__num">Hồi 1</div>
+<h3>Nhịp sai (The Wrong Rhythm)</h3>
+<p class="cs-act__meta"><strong>Time:</strong> Sáng đến trưa  ·  <strong>Place:</strong> Bến thuyền, trên thuyền</p>
+<ol class="cs-beats">
+<li data-beat="1.1">Cast đến bến với năng lượng đường phố quen thuộc: ồn, đùa, sờ mọi thứ. Selfie với thuyền Rồng trước khi biết thuyền tên gì.</li>
+<li data-beat="1.2">Gặp nghệ nhân Nhã nhạc trên thuyền. Crash course 10 phút. Cast nhận ra: đây không phải nhạc nền, đây là kỷ luật, timing, sự tôn trọng.</li>
+<li data-beat="1.3">Nghệ nhân cao tuổi nói một câu ngắn rồi im lặng. Cast bị im theo. Turning point đầu tiên: ngày này không "đi chơi", ngày này "tổ chức một đêm".</li>
+<li data-beat="1.4">Cast được phân vai trò: bếp (Jun, Thanh Tâm), nhạc (Rhymastic, BCN), MC và setup (Duy Khánh). Mỗi người chọn (hoặc bị chọn) việc họ chưa từng làm.</li>
+<li data-beat="1.5">ACT BREAK 1: Cast nhận ra hôm nay là test, không phải tour.</li>
+</ol>
+</article>
+<article class="cs-act">
+<div class="cs-act__num">Hồi 2</div>
+<h3>Học cách tiếp đãi, không phải trình diễn</h3>
+<p class="cs-act__meta"><strong>Time:</strong> Chiều  ·  <strong>Place:</strong> Bếp trên thuyền, khoang nhạc, boong sau</p>
+<ol class="cs-beats">
+<li data-beat="2.1">Bếp: Jun và Thanh Tâm thử nấu món Huế. Cơm hến không ra hồn. Bún bò ra lạ. Họ phải hỏi nghệ nhân ẩm thực địa phương. Bài học: món Huế không "ngon hơn nữa", mà "đúng tỷ lệ". Restraint.</li>
+<li data-beat="2.2">Nhạc: Rhymastic được giao nhịp Nhã nhạc. Anh thử map nó như một beat hiện đại, fail. Anh hỏi nghệ nhân: "Nhạc của em luôn có drop, có hook. Nhạc của bác đi đâu?" Nghệ nhân trả lời: "Nhạc của bác không đi đâu cả. Nhạc của bác đợi." Rhymastic im một lúc.</li>
+<li data-beat="2.3">MC: Duy Khánh viết lời dẫn, đọc thử. Tone quá modern, quá comedy show. Bùi Công Nam góp ý: "Anh đang dẫn show, không phải đang chào khách." Duy Khánh xé bản nháp.</li>
+<li data-beat="2.4">Sponsor lần thử đầu (BAD SOLUTION): Một thành viên đề xuất đặt QR standee ở cửa thuyền cho khách scan tip. Nghệ nhân nhìn, không nói gì, rồi nhẹ: "Nó giống thanh toán hóa đơn." Cast stuck.</li>
+<li data-beat="2.5">Bùi Công Nam ngồi với nghệ nhân cao tuổi nhất. Học một câu trên đàn tranh. Nghệ nhân kể về bông hoa cài tiền: ngày xưa khán giả cài bông hoa có gắn ít tiền, hoa được trao tận tay nghệ nhân. Tiền là phụ, hoa là chính.</li>
+<li data-beat="2.6">ACT BREAK 2: Cast quyết định không dùng QR standee. Họ sẽ giữ bông hoa vật lý.</li>
+</ol>
+</article>
+<article class="cs-act">
+<div class="cs-act__num">Hồi 3</div>
+<h3>Một cử chỉ mới, không phải chiêu thức mới</h3>
+<p class="cs-act__meta"><strong>Time:</strong> Hoàng hôn đến đêm  ·  <strong>Place:</strong> Thuyền Rồng giữa sông Hương</p>
+<ol class="cs-beats">
+<li data-beat="3.1">Đại Sứ Mỹ Vị lên thuyền. KHÔNG vào vai quan khách (đã bỏ ý tưởng cosplay từ draft cũ). Họ là khách đầu tiên của một "quán một đêm" trên sông. Cast là host, không phải người hầu cung đình.</li>
+<li data-beat="3.2">Bữa tối được dọn. Món Huế không hoàn hảo, có món mặn hơn nên, có món cast phải xin lỗi. Khách cười. Đó là Quán Nhà Haha thật.</li>
+<li data-beat="3.3">Nhã nhạc bắt đầu. Cast hỗ trợ nghệ nhân: Rhymastic cầm phụ một nhạc cụ phụ, BCN ngồi cạnh nghệ nhân già, Thanh Tâm gõ một tiếng trống nhẹ khi được ra dấu. Họ không trình diễn, họ tham gia. Khán giả cảm được sự cố gắng.</li>
+<li data-beat="3.4">Duy Khánh dẫn buổi tối. Không script. Anh phải có ba thứ: một giải thích về văn hóa, một giới thiệu món, một lời mời nghi thức hoa. Anh fail một lần (lẫn lộn tên hai nghệ nhân), recovery bằng câu đùa thật, rồi land một câu sincere ở cuối.</li>
+<li data-beat="3.5">KHOẢNH KHẮC BÔNG HOA. Duy Khánh giới thiệu. Anh KHÔNG nói "scan QR tip cho nghệ nhân". Anh nói: "Đêm nay, nếu tiếng nhạc làm bạn muốn nói điều gì đó, hãy cài bông hoa này, và quét cái mã nhỏ sau cánh hoa. Bông hoa là cho bác. Mã là cho ngân hàng. Cảm ơn ai cần được cảm ơn."</li>
+<li data-beat="3.6">Khách đầu tiên đứng dậy, cầm bông hoa, trao tận tay nghệ nhân. Camera bắt: gesture vật lý trao tay (long beat). Sau đó scan QR. Logo VCB chỉ xuất hiện ở góc khi mã được quét, KHÔNG TRƯỚC.</li>
+<li data-beat="3.7">Closing: BCN và Rhymastic ngồi ở mạn thuyền, sông đêm. BCN hát bốn câu thank-you ngắn anh viết trong ngày, dựa trên câu nhạc nghệ nhân dạy. Không thuyết giáo. Cut to black.</li>
+</ol>
+</article>
+</div>
+</section>
+<!-- ============== 07 CAST ============== -->
+<section aria-labelledby="cast-title" class="cs-section" id="cast">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">07 · CAST</span>
+<h2 id="cast-title">Năm người, năm scene được thiết kế</h2>
+<p>Không phải mô tả tính cách, là designed scene. Cast thật sẽ improvise, scene là khung.</p>
+</div>
+<div class="cs-cast">
+<article class="cs-cast__card">
+<h3>Jun Phạm</h3>
+<div class="cs-cast__role">Bếp chính, neo của Hồi 2</div>
+<p class="cs-cast__trait"><strong>Trait:</strong> bản năng tổ chức, biết khi nào cần im lặng.</p>
+<div class="cs-cast__scene">
+<strong>Designed scene (Hồi 2.1)</strong>
+              Jun là người duy nhất nghe nghệ nhân ẩm thực nói "không cần thêm gia vị, chỉ cần đợi" và thực sự đợi. Anh giữ team không chạy theo "ngon hơn nữa". Trong khi Thanh Tâm hỏi liên tục, Jun làm theo từng bước. Bài học: restraint không phải kỷ luật, là tin tưởng.
+            </div>
+</article>
+<article class="cs-cast__card">
+<h3>Ngọc Thanh Tâm</h3>
+<div class="cs-cast__role">Học bằng tay, năng lượng nhiệt</div>
+<p class="cs-cast__trait"><strong>Trait:</strong> chạm vào mọi thứ, hỏi mọi thứ, đôi khi đúng chỗ, đôi khi không.</p>
+<div class="cs-cast__scene">
+<strong>Designed scene (Hồi 2.1)</strong>
+              Cô làm hỏng bánh bèo lần đầu vì đổ bột không đều. Nghệ nhân không chỉ trích, chỉ làm lại trước mặt cô, không nói gì. Thanh Tâm làm lại lần hai, đúng. Một moment im lặng giữa hai người phụ nữ, khác thế hệ, cùng một việc.
+            </div>
+</article>
+<article class="cs-cast__card">
+<h3>Rhymastic</h3>
+<div class="cs-cast__role">Nhạc sĩ hiện đại bị Nhã nhạc dạy ngược lại</div>
+<p class="cs-cast__trait"><strong>Trait:</strong> nhạc sĩ technical, muốn hiểu cấu trúc.</p>
+<div class="cs-cast__scene">
+<strong>Designed scene (Hồi 2.2)</strong>
+              Rhymastic được yêu cầu theo một nhịp Nhã nhạc sau khi nghe một lần. Anh thử map nó như một modern beat, fail. Anh hỏi nghệ nhân: "Nhạc của em luôn có drop, có hook. Nhạc của bác đi đâu?" Nghệ nhân: "Nhạc của bác không đi đâu cả. Nhạc của bác đợi." Đây là khoảnh khắc cold open potential cho cả tập.
+            </div>
+</article>
+<article class="cs-cast__card">
+<h3>Bùi Công Nam</h3>
+<div class="cs-cast__role">Cầu cảm xúc giữa cast và nghệ nhân</div>
+<p class="cs-cast__trait"><strong>Trait:</strong> cảm nhận trước khi phân tích, kết nối với người địa phương.</p>
+<div class="cs-cast__scene">
+<strong>Designed scene (Hồi 2.5 và Hồi 3.7)</strong>
+              BCN học một câu duy nhất trên đàn tranh từ nghệ nhân cao tuổi nhất. Trong ngày, anh viết bốn câu thank-you ngắn dựa trên câu nhạc đó. Cuối Hồi 3, anh hát tặng nghệ nhân không lên kế hoạch trước. Đây là emotional anchor của tập.
+            </div>
+</article>
+<article class="cs-cast__card">
+<h3>Duy Khánh</h3>
+<div class="cs-cast__role">MC không script</div>
+<p class="cs-cast__trait"><strong>Trait:</strong> improvise tốt, đọc không khí, khả năng switch từ comedy sang sincere.</p>
+<div class="cs-cast__scene">
+<strong>Designed challenge (xuyên suốt Hồi 2 và Hồi 3)</strong>
+              Ba thứ bắt buộc phải xuất hiện trong lời dẫn buổi tối: một giải thích về văn hóa Huế, một giới thiệu món, một lời mời nghi thức bông hoa. Không có giấy. Phải kiếm câu từ những gì học trong ngày. Cấu trúc cho editor: fail (sáng), practice fail (chiều), recovery và land (tối). Cho phép 3 short-form cut riêng biệt.
+            </div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== 08 MECHANICS ============== -->
+<section aria-labelledby="mechanics-title" class="cs-section" id="mechanics">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">08 · MECHANICS</span>
+<h2 id="mechanics-title">Bếp và Nhạc, hai gương phản chiếu</h2>
+</div>
+
+
+
+
+<div class="cs-prose-pack"><div class="cs-mechanics-grid"><article class="cs-mini-card"><span class="cs-mini-card__label">Shared grammar</span><p>Món Huế và Nhã nhạc cung đình có cùng bốn phẩm chất: restraint, precision, layering, patience.</p></article><article class="cs-mini-card"><span class="cs-mini-card__label">Natural conflict</span><p>Cast Quán Nhà Haha tự nhiên có ngược lại: ồn, nhanh, ngẫu hứng, không chờ.</p></article><article class="cs-mini-card"><span class="cs-mini-card__label">Human growth</span><p>Conflict không phải "cast vs văn hóa Huế". Conflict là "cast phải slow down để cả hai cùng work". Đây là human growth của tập, không phải lecture về di sản.</p></article><article class="cs-mini-card"><span class="cs-mini-card__label">Edit mechanism</span><p>Split-screen tự nhiên trong edit: bên bếp, Thanh Tâm bị nghệ nhân ẩm thực bắt đợi cho cơm hến nguội đúng độ. Bên nhạc, Rhymastic bị bắt đợi giữa hai nhịp Nhã nhạc. Hai cảnh đợi, cùng một bài học, cùng một frame.</p></article></div></div></div>
+</section>
+<!-- ============== 09 SPONSOR ============== -->
+<section aria-labelledby="sponsor-title" class="cs-section" id="sponsor">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">09 · SPONSOR</span>
+<h2 id="sponsor-title">Tích hợp VCB DigiBank như một arc, không phải tag cuối</h2>
+</div>
+<div class="cs-sponsor">
+<article class="cs-sponsor__step">
+<h3>01 · Problem</h3>
+<p>Cast muốn giúp khách thể hiện sự cảm ơn nghệ nhân. Không phải vì tiền, vì cảm xúc cần một kênh.</p>
+</article>
+<article class="cs-sponsor__step">
+<h3>02 · Bad solution</h3>
+<p>QR standee đặt ở cửa thuyền. Nghệ nhân react nhẹ: "Nó giống thanh toán hóa đơn."</p>
+</article>
+<article class="cs-sponsor__step">
+<h3>03 · Pushback</h3>
+<p>Nghệ nhân cao tuổi nói: "Bông hoa ngày xưa không phải tiền. Là một cái gật đầu được làm thành vật."</p>
+</article>
+<article class="cs-sponsor__step">
+<h3>04 · Better solution</h3>
+<p>Bông hoa vật lý có gắn QR tag nhỏ phía sau. Khách cầm hoa, trao tận tay nghệ nhân (gesture được giữ), rồi scan QR riêng (giao dịch được digital hóa).</p>
+</article>
+<article class="cs-sponsor__step">
+<h3>05 · Final gesture</h3>
+<p>Khách giữ lại tag như souvenir. Tag có in một câu hay về Huế hoặc Nhã nhạc. Trao đổi văn hóa hai chiều: nghệ nhân nhận tri ân, khách nhận kỷ vật.</p>
+</article>
+<article class="cs-sponsor__step">
+<h3>06 · Brand role</h3>
+<p>VCB DigiBank là infrastructure giữa hai con người, không phải hero. Logo chỉ xuất hiện ở khoảnh khắc scan, không trước.</p>
+</article>
+</div>
+<div class="callout">
+<p><strong style="font-family:var(--font-ui); font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase; color:var(--color-crimson); font-style:normal; display:block; margin-bottom:0.5rem;">Vì sao không bị forced</strong>
+          Giải pháp được cast phát triển sau khi bị nghệ nhân từ chối phương án đầu tiên. Sponsor không "có sẵn", sponsor "được tìm ra" sau khi failed một lần. Đó là khác biệt giữa brand integration và brand insertion.</p>
+</div>
+</div>
+</section>
+<!-- ============== 10 CUTDOWNS ============== -->
+<section aria-labelledby="cutdowns-title" class="cs-section" id="cutdowns">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">10 · CUTDOWNS</span>
+<h2 id="cutdowns-title">Sáu cuts cho short-form, design song song với episode</h2>
+</div>
+<div class="cs-cuts">
+<article class="cs-cut">
+<div class="cs-cut__num">01</div>
+<h3>"Khi rapper gặp Nhã nhạc"</h3>
+<div class="cs-cut__meta">30 đến 60 giây · Cold open potential</div>
+<p>Rhymastic thử map nhịp Nhã nhạc, fail, nghệ nhân: "Nhạc của bác đợi."</p>
+</article>
+<article class="cs-cut">
+<div class="cs-cut__num">02</div>
+<h3>"Cast Quán Nhà Haha không biết nấu cơm hến"</h3>
+<div class="cs-cut__meta">45 đến 60 giây · Food trend cut</div>
+<p>Thanh Tâm và Jun ở bếp, mâu thuẫn với nghệ nhân ẩm thực.</p>
+</article>
+<article class="cs-cut">
+<div class="cs-cut__num">03</div>
+<h3>"MC không có script, có ba việc phải làm"</h3>
+<div class="cs-cut__meta">45 giây · Behind-the-scenes</div>
+<p>Duy Khánh chuẩn bị lời dẫn, fail-practice-recovery arc.</p>
+</article>
+<article class="cs-cut">
+<div class="cs-cut__num">04</div>
+<h3>"Bùi Công Nam học đàn tranh từ nghệ nhân 70 tuổi"</h3>
+<div class="cs-cut__meta">60 đến 90 giây · Heart cut</div>
+<p>Emotional anchor của tập, dùng cho organic reach.</p>
+</article>
+<article class="cs-cut">
+<div class="cs-cut__num">05</div>
+<h3>"Bông hoa cài tiền: nghi thức 100 năm trước trên sông Hương"</h3>
+<div class="cs-cut__meta">30 đến 45 giây · Cultural cut</div>
+<p>Nghệ nhân kể, để hoa nói chuyện trước khi giải pháp xuất hiện.</p>
+</article>
+<article class="cs-cut">
+<div class="cs-cut__num">06</div>
+<h3>"Khoảnh khắc bông hoa đầu tiên"</h3>
+<div class="cs-cut__meta">30 đến 45 giây · Payoff cut</div>
+<p>Khách đầu tiên trao hoa cho nghệ nhân, sau đó scan. Logo VCB xuất hiện ở góc.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== 11 EDITORIAL ============== -->
+<section aria-labelledby="editorial-title" class="cs-section cs-editorial" id="editorial">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">11 · EDITORIAL</span>
+<h2 id="editorial-title">Bộ output cho team biên tập và social</h2>
+</div>
+<dl>
+<dt>Episode hook</dt>
+<dd>Một dàn cast hiện đại thử tổ chức đêm nghi thức Huế trên sông Hương, và phát hiện rằng giữ truyền thống không phải copy quá khứ, mà bảo vệ cái cử chỉ làm cho nó có nghĩa.</dd>
+<dt>Cold open</dt>
+<dd>Rhymastic thử map nhịp Nhã nhạc như một beat. Fail. Nghệ nhân nói: "Nhạc của bác đợi." Cut to title.</dd>
+<dt>Act break 1</dt>
+<dd>Cast nhận ra hôm nay không phải đi chơi Huế, hôm nay là tổ chức một đêm.</dd>
+<dt>Act break 2</dt>
+<dd>Cast quyết định không dùng QR standee. Họ sẽ giữ bông hoa vật lý.</dd>
+<dt>Title options</dt>
+<dd>"Bếp Nhà Haha Gặp Bếp Cung Đình" · "Một Đêm Trên Sông Hương" · "Học Đợi"</dd>
+<dt>Thumbnail concept</dt>
+<dd>Cast trên thuyền Rồng, một người cầm bông hoa thật, ánh sáng vàng hoàng hôn, sông Hương phía sau, mặt cast là expression "vừa lo vừa háo hức".</dd>
+<dt>Key emotional line</dt>
+<dd>Duy Khánh, Hồi 3.5: "Cảm ơn ai cần được cảm ơn."</dd>
+<dt>Brand-safe line</dt>
+<dd>Duy Khánh, ngay sau key line: "Bông hoa là cho bác. Mã là cho ngân hàng."</dd>
+</dl>
+</div>
+</section>
+<!-- ============== 12 RISKS ============== -->
+<section aria-labelledby="risks-title" class="cs-section" id="risks">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">12 · RISKS</span>
+<h2 id="risks-title">Rủi ro production và cách xử lý</h2>
+</div>
+<div class="cs-risks">
+<article class="cs-risk">
+<h3>Risk 01 · Cultural sensitivity (Nhã nhạc và Huế bị treat như prop)</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Nghệ nhân được credit rõ trong end card. Dialogue thật, không scripted lines cho nghệ nhân. Cho phép pushback on-screen (đã thiết kế trong Hồi 2.4). Không quay cảnh cast "chế" nhạc, chỉ tham gia.</div>
+</article>
+<article class="cs-risk">
+<h3>Risk 02 · Sponsor overexposure (VCB quá lộ)</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Logo chỉ xuất hiện ở khoảnh khắc scan QR, không trước. Brand-safe line đã viết. QR tag nhỏ phía sau hoa, không ở vị trí chính của frame.</div>
+</article>
+<article class="cs-risk">
+<h3>Risk 03 · Pacing (Hồi 2 dài, có 4 team fail cùng lúc)</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Editor cắt theo mirror structure (bếp và nhạc cùng "đợi"). Cut between teams theo nhịp restraint, không nhịp chaos. Music bed im lặng nhiều hơn thường lệ.</div>
+</article>
+<article class="cs-risk">
+<h3>Risk 04 · Cast diễn quá (cosplay quan khách như draft cũ)</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Đã bỏ ý tưởng quan khách. Đại Sứ chỉ là khách đầu tiên của "quán một đêm". Cast là host bình thường, không phải người hầu cung đình. Wardrobe vẫn casual elevated, không cosplay áo dài cung đình.</div>
+</article>
+<article class="cs-risk">
+<h3>Risk 05 · Đêm trên sông có thể chậm, mất viewer</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Duy Khánh fail-recovery moment đặt ở 60% của Hồi 3 để giữ tempo. Closing reflection rất ngắn (dưới 30 giây). BCN hát thank-you là payoff cảm xúc, không phải lecture cuối.</div>
+</article>
+<article class="cs-risk">
+<h3>Risk 06 · Thời tiết và sông Hương đêm (technical)</h3>
+<div class="cs-risk__fix"><strong>Fix:</strong> Backup plan quay trong nhà cổ Huế nếu mưa. Nhã nhạc trên sông sensitive với gió, đã note trong audio plan.</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== 13 WHAT THIS PROVES ============== -->
+<section aria-labelledby="proves-title" class="cs-section" id="proves">
+<div class="container">
+<div class="cs-section__head">
+<span class="eyebrow">13 · WHAT THIS PROVES</span>
+<h2 id="proves-title">Case study này chứng minh sáu năng lực</h2>
+</div>
+<div class="cs-proves">
+<article class="cs-prove">
+<div class="cs-prove__num">01</div>
+<h3>Research-led development</h3>
+<p>Đọc Nhã nhạc, đọc Huế, đọc audience trước khi viết tình huống.</p>
+</article>
+<article class="cs-prove">
+<div class="cs-prove__num">02</div>
+<h3>Cast-driven scene design</h3>
+<p>Mỗi nhân vật có một scene với stakes, không chỉ tính cách được liệt kê.</p>
+</article>
+<article class="cs-prove">
+<div class="cs-prove__num">03</div>
+<h3>Sponsor narrative logic</h3>
+<p>Brand đi qua arc problem, bad solution, pushback, better solution, không phải tag cuối.</p>
+</article>
+<article class="cs-prove">
+<div class="cs-prove__num">04</div>
+<h3>Format awareness</h3>
+<p>Cấu trúc 3 hồi với escalating friction, mirror scenes, fail-recovery cho MC.</p>
+</article>
+<article class="cs-prove">
+<div class="cs-prove__num">05</div>
+<h3>Short-form thinking</h3>
+<p>6 cuts được design song song với episode, không phải afterthought sau khi quay.</p>
+</article>
+<article class="cs-prove">
+<div class="cs-prove__num">06</div>
+<h3>Production realism</h3>
+<p>Risk và fix được liệt kê cụ thể, không né những chỗ dễ break.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- ============== CLOSING ============== -->
+<section aria-labelledby="closing-title" class="cs-section" id="contact-cs">
+<div class="container">
+<div class="cs-section__head" style="text-align:center; margin-inline:auto;">
+<span class="eyebrow">CLOSING</span>
+<h2 id="closing-title" style="margin-inline:auto;">Một lời cuối</h2>
+</div>
+<div class="cs-closing">
+<p>Đây là một speculative treatment, không phải sản phẩm chính thức của Yeah1 hoặc VCB DigiBank. Tôi xây nó như một case study cá nhân để chứng minh cách phát triển một episode từ research, tension, cast function, sponsor arc, đến short-form outputs.</p>
+<p style="margin-top:1.5rem;">
+<a class="button button--primary" href="../index.html">← Quay lại Portfolio</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+      Quán Nhà Haha · Speculative Episode Treatment · Portfolio sample của Felix Phan · 2026
+    </div>
+</footer>
+<script defer="" src="../assets/js/main.js"></script>
+</body>
+</html>
