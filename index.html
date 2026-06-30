@@ -126,6 +126,11 @@
       margin: 0;
     }
 
+    .hero-cover__role-en strong {
+      color: rgba(247, 243, 236, .95);
+      font-weight: 700;
+    }
+
     .hero-cover__divider {
       width: 48px;
       height: 2px;
@@ -207,8 +212,8 @@
 
     .qnh-intro {
       font-family: var(--font-body);
-      font-size: clamp(15px, 1.4vw, 17px);
-      line-height: 1.8;
+      font-size: 15px;
+      line-height: 1.7;
       color: var(--color-ink-soft);
       margin: 0 0 18px;
     }
@@ -304,53 +309,43 @@
     }
 
 
-    /* QNH featured card: side-by-side on desktop, stacked on mobile. */
+    /* QNH featured card: full-width 16:9 banner on top, content below. */
     #case-study .proof-card--featured {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: block;
       overflow: hidden;
+      border: var(--border-thin);
+      border-top: 4px solid var(--color-crimson);
+      border-radius: var(--radius-md);
     }
 
     #case-study .proof-card--featured .proof-card__media {
       width: 100%;
+      aspect-ratio: 16 / 9;
       background: var(--color-ink);
+      border-bottom: var(--border-thin);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
-      aspect-ratio: 4 / 3;
-      border-bottom: var(--border-thin);
     }
 
     #case-study .proof-card--featured .proof-card__media img {
-      width: auto;
+      width: 100%;
       height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: center;
+      object-fit: cover;
+      object-position: center 32%;
       display: block;
     }
 
     #case-study .proof-card--featured .proof-card__body {
-      padding: var(--space-3) var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      max-width: 900px;
     }
 
-    @media (min-width: 900px) {
-      #case-study .proof-card--featured {
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-        align-items: stretch;
-      }
-      #case-study .proof-card--featured .proof-card__media {
-        aspect-ratio: auto;
-        border-bottom: none;
-        border-right: var(--border-thin);
-        height: 100%;
-        min-height: 420px;
-        max-height: 520px;
-      }
+    #case-study .proof-card--featured .proof-card__body .qnh-intro:last-of-type {
+      margin-bottom: var(--space-3);
     }
 
-    /* Section padding tightening for case study, fits in ~1 viewport */
+    /* Section padding tightening for case study */
     #case-study { padding-block: var(--space-5); }
 </style>
 </head>
@@ -386,7 +381,7 @@
             <span class="outline">Phan</span>
 </h1>
 <p class="hero-cover__role">Phát triển nội dung &amp; Biên kịch</p>
-<p class="hero-cover__role-en">Creative Development &amp; Scriptwriting · Truyền hình thực tế · Branded Storytelling · Social-first</p>
+<p class="hero-cover__role-en"><strong>Creative Development &amp; Scriptwriting</strong> · Truyền hình thực tế · Branded Storytelling · Social-first</p>
 <div class="hero-cover__divider"></div>
 <p class="hero-cover__positioning">
             Tôi phát triển concept giải trí từ bước research đến xây dựng cấu trúc story shootable: audience insight, format logic, cast dynamics, tích hợp sponsor, và editorial moment cho short-form.
@@ -424,7 +419,7 @@
 <article class="snapshot-card reveal">
 <div class="snapshot-card__num">03</div>
 <h3>Tích hợp sponsor với narrative logic</h3>
-<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành <strong>một nhân vật riêng gắn kết với script</strong>. Trong dự án Quán Nhà Haha, tôi lồng ghép VCB như infrastructure đằng sau một gesture nhân văn.</p>
+<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành <strong>một nhân vật riêng gắn kết với script</strong>.</p>
 <a class="link-arrow" href="#pillar-2">Xem brand storytelling →</a>
 </article>
 <article class="snapshot-card reveal">
@@ -450,14 +445,13 @@
 <div class="proof-card__body">
 <div class="proof-card__label">DỰ ÁN SÁNG TẠO CÁ NHÂN · EPISODE TREATMENT</div>
 <h3>Bếp Nhà Haha Gặp Bếp Cung Đình</h3>
-<p class="proof-card__meta">Treatment đề xuất cho một tập giả tưởng trong chặng Huế của Quán Nhà Haha</p>
-<p class="qnh-intro">Tôi tự chọn một show đang phát sóng, Quán Nhà Haha, và phát triển đầy đủ treatment cho một tập giả tưởng.</p>
+<p class="proof-card__meta">Treatment đề xuất cho một tập giả tưởng trong chặng Huế của Quán Nhà Haha.</p>
 <p class="qnh-intro">Ý tưởng lõi: Đưa dàn cast vào bữa tối Nhã nhạc cung đình trên thuyền Rồng sông Hương, nơi truyền thống bông hoa cài tiền được tái thiết kế thành "hoa số hóa" qua VCB DigiBank. Câu hỏi xuyên suốt: <em>Khi xã hội thay đổi, một nghi thức đẹp sẽ đi về đâu?</em></p>
 <dl>
 <dt>Điều dự án này chứng minh</dt>
 <dd>Research-led development · Situation design · Cast-driven scene logic · Sponsor integration · Social-first editorial thinking</dd>
 <dt>Output</dt>
-<dd>Full treatment với strategic brief, 3-act structure, cast function map, sponsor arc, short-form cutdowns, editorial outputs, và production risks.</dd>
+<dd>Full treatment gồm strategic brief, 3-act structure, cast function map, sponsor arc, short-form cutdowns, editorial outputs, và production risks.</dd>
 </dl>
 <div class="proof-card__footer">
 <a class="button button--primary" href="case-studies/quan-nha-haha.html">Xem full case study →</a>

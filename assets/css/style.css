@@ -309,8 +309,8 @@ a:hover { color: var(--color-crimson-deep); }
 
 .section-head p {
   color: var(--color-ink-soft);
-  font-size: var(--text-lg);
-  max-width: var(--max-width-prose);
+  font-size: 15px;
+  max-width: 760px;
   line-height: 1.7;
 }
 
