@@ -158,6 +158,26 @@
       letter-spacing: 0;
     }
 
+    /* ============ WHY FELIX: 4-up compact grid ============ */
+    @media (min-width: 1024px) {
+      #why .snapshot-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-3);
+      }
+      #why .snapshot-card {
+        padding: var(--space-3);
+        gap: 12px;
+      }
+      #why .snapshot-card__num { font-size: 22px; }
+      #why .snapshot-card h3 { font-size: 16px; line-height: 1.3; }
+      #why .snapshot-card p { font-size: 13px; line-height: 1.55; }
+      #why .snapshot-card .link-arrow { font-size: 12px; }
+    }
+    @media (min-width: 1024px) and (max-width: 1180px) {
+      #why .snapshot-card p { font-size: 12.5px; }
+      #why .snapshot-card h3 { font-size: 15px; }
+    }
+
     /* ============ QNH FEATURED ADDITIONS ============ */
     .qnh-disclaimer {
       display: inline-block;
@@ -402,31 +422,60 @@
     }
 
 
-    /* QNH featured card: full artwork visible, image above content. */
+    /* QNH featured card: side-by-side on desktop, stacked on mobile. */
     #case-study .proof-card--featured {
-      display: block;
+      display: grid;
+      grid-template-columns: 1fr;
       overflow: hidden;
     }
 
     #case-study .proof-card--featured .proof-card__media {
       width: 100%;
-      min-height: 0;
-      border-bottom: var(--border-thin);
       background: var(--color-ink);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0;
+      aspect-ratio: 4 / 3;
+      border-bottom: var(--border-thin);
     }
 
     #case-study .proof-card--featured .proof-card__media img {
       width: 100%;
-      height: auto;
-      max-height: none;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
       display: block;
       background: var(--color-ink);
     }
+
+    #case-study .proof-card--featured .proof-card__body {
+      padding: var(--space-4) var(--space-4);
+    }
+
+    @media (min-width: 900px) {
+      #case-study .proof-card--featured {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        align-items: stretch;
+      }
+      #case-study .proof-card--featured .proof-card__media {
+        aspect-ratio: auto;
+        border-bottom: none;
+        border-right: var(--border-thin);
+        height: 100%;
+        min-height: 480px;
+        max-height: 580px;
+      }
+    }
+
+    /* Section padding tightening for case study */
+    #case-study { padding-block: var(--space-5); }
+    .qnh-process { margin-top: var(--space-5); padding-top: var(--space-4); }
+    .qnh-process__head { margin-bottom: var(--space-3); }
+    .qnh-step { padding: 18px 16px; }
+    .qnh-step__num { font-size: 28px; margin-bottom: 6px; }
+    .qnh-step__title { font-size: 10.5px; margin-bottom: 8px; }
+    .qnh-step__body { font-size: 12.5px; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -440,7 +489,7 @@
 <button aria-controls="nav-links" aria-expanded="false" class="nav__toggle" type="button">Menu</button>
 <ul class="nav__links" id="nav-links">
 
-<li><a href="#why">Tại sao Felix</a></li>
+<li><a href="#why">Tại sao chọn Felix</a></li>
 <li><a href="#case-study">Case study</a></li>
 <li><a href="#pillars">Năng lực</a></li>
 
@@ -476,25 +525,19 @@
 <img alt="Chân dung Felix Phan, tone ấm, ngoài trời" height="800" src="images/hero-portrait.jpg" width="640"/>
 </div>
 </div>
-<div class="hero-cover__bar">
-<a href="mailto:felixphan.contact@gmail.com"><span class="lbl">Email</span>felixphan.contact@gmail.com</a>
-<a href="tel:+84936647704"><span class="lbl">Phone</span>+84 936 647 704</a>
-<a href="https://linkedin.com/in/felixphan" rel="noopener noreferrer" target="_blank"><span class="lbl">LinkedIn</span>linkedin.com/in/felixphan</a>
-<span><span class="lbl">Base</span>Hồ Chí Minh City</span>
-</div>
 </header>
 <!-- ============== WHY FELIX ============== -->
 <section aria-labelledby="why-title" class="section" id="why">
 <div class="container">
 <div class="section-head reveal">
-<span class="eyebrow">TẠI SAO FELIX LÀ MỘT ỨNG VIÊN TIỀM NĂNG?</span>
+<span class="eyebrow">TẠI SAO CHỌN FELIX?</span>
 <h2 id="why-title">Bốn năng lực cốt lõi của Felix</h2>
 </div>
 <div class="snapshot-grid">
 <article class="snapshot-card reveal">
 <div class="snapshot-card__num">01</div>
 <h3>Phát triển concept dẫn dắt bởi research</h3>
-<p>Felix phát triển mọi ý tưởng bắt đầu từ research, giúp đưa ra những hướng thực thi align đúng với thị hiếu của target audience và performance thực tế trên thị trường.<br/><br/>Các dự án nổi bật: MAGGI vs Barona social listening, phân tích V-Pop cultural hybridity qua lý thuyết Bourdieu, phân tích giá trị văn hóa của Gặp Nhau Cuối Năm qua lý thuyết Stuart Hall.</p>
+<p>Felix phát triển mọi ý tưởng bắt đầu từ research, giúp đưa ra những hướng thực thi align đúng với thị hiếu của target audience và performance thực tế trên thị trường.</p>
 <a class="link-arrow" href="#case-study">Xem case study Quán Nhà Haha →</a>
 </article>
 <article class="snapshot-card reveal">
@@ -506,7 +549,7 @@
 <article class="snapshot-card reveal">
 <div class="snapshot-card__num">03</div>
 <h3>Tích hợp sponsor với narrative logic</h3>
-<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành một nhân vật riêng gắn kết với script. Trong dự án Quán Nhà Haha, tôi lồng ghép VCB như infrastructure đằng sau một gesture nhân văn.</p>
+<p>Brand tài trợ khi xuất hiện không được nhạt nhòa, càng không thể tạo cảm giác phiền phức đối với người xem, mà brand cần trở thành <strong>một nhân vật riêng gắn kết với script</strong>. Trong dự án Quán Nhà Haha, tôi lồng ghép VCB như infrastructure đằng sau một gesture nhân văn.</p>
 <a class="link-arrow" href="#pillar-2">Xem brand storytelling →</a>
 </article>
 <article class="snapshot-card reveal">
@@ -549,12 +592,11 @@
 
 <div class="qnh-process">
 <h3 class="qnh-process__head">Quy trình phát triển treatment</h3>
-<p class="qnh-process__lede">Năm bước từ research đến clip-able moments. Đây là phần thực sự khó tái tạo — không phải ý tưởng, mà là phương pháp.</p>
 <div class="qnh-process__grid">
 <article class="qnh-step reveal">
 <p class="qnh-step__num">01</p>
 <p class="qnh-step__title">Nghiên cứu &amp; Insight</p>
-<p class="qnh-step__body">Phân tích DNA chương trình: format ăn uống + talkshow, tông giọng hài hước chân thật, đối tượng 18–35. Nghiên cứu ẩm thực cung đình Huế và Nhã nhạc như di sản UNESCO.</p>
+<p class="qnh-step__body">Phân tích DNA chương trình: format ăn uống + talkshow, tông giọng hài hước chân thật, đối tượng 18-35. Nghiên cứu ẩm thực cung đình Huế và Nhã nhạc như di sản UNESCO.</p>
 </article>
 <article class="qnh-step reveal">
 <p class="qnh-step__num">02</p>
@@ -588,7 +630,7 @@
 <div class="section-head reveal">
 <span class="eyebrow">NĂNG LỰC I</span>
 <h2 id="pillar-1-title">Biên kịch đa định dạng</h2>
-<p>Tôi tin là ai cũng có thể đề xuất ý tưởng, nhưng <strong>liệu họ có khả năng biến ý tưởng thành những mạch chuyện hoàn chỉnh?</strong> Từ ý tưởng, qua outline, đến script chi tiết, và cho nhiều định dạng khác nhau? Từ TVC 30 giây cho thương hiệu lớn, đến phim ngắn độc lập, đến podcast long-form, đến treatment cho reality show. Mỗi định dạng đòi hỏi một framework kể chuyện khác nhau – những dự án tâm đắc sau đây sẽ chứng minh cho <strong>khả năng thích ứng</strong> theo từng loại hình nội dung của tôi.</p>
+<p>Tôi tin là ai cũng có thể đề xuất ý tưởng, nhưng <strong>liệu họ có khả năng biến ý tưởng thành những mạch chuyện hoàn chỉnh?</strong> Từ ý tưởng, qua outline, đến script chi tiết, và cho nhiều định dạng khác nhau? Từ TVC 30 giây cho thương hiệu lớn, đến phim ngắn độc lập, đến podcast long-form, đến treatment cho reality show. Mỗi định dạng đòi hỏi một framework kể chuyện khác nhau, những dự án tâm đắc sau đây sẽ chứng minh cho <strong>khả năng thích ứng</strong> theo từng loại hình nội dung của tôi.</p>
 </div>
 <div class="card-grid card-grid--3">
 <article class="proof-card reveal">
@@ -745,7 +787,7 @@
 <dl>
 <dt>Vai trò</dt><dd>Solo researcher, viết case study analysis.</dd>
 <dt>Vấn đề</dt><dd>Tại sao một chương trình giải trí có thể critique quyền lực mà vẫn được phát sóng prime-time.</dd>
-<dt>Quyết định</dt><dd>Đọc qua khung encoding-decoding của Stuart Hall: tách layer encoding, preferred reading, negotiated, oppositional.</dd>
+<dt>Quyết định</dt><dd>Phân tích qua khung lý thuyết encoding-decoding của Stuart Hall: tách layer encoding, preferred reading, negotiated, oppositional.</dd>
 <dt>Output</dt><dd>Report.</dd>
 <dt>Kỹ năng</dt><dd>Tôi có thể decode tại sao audience reaction xảy ra, không chỉ describe nó.</dd>
 </dl>
@@ -760,9 +802,9 @@
 <h3>Folk × Western Elements in V-Pop Music Videos</h3>
 <p class="proof-card__meta">RMIT · Co-Researcher · 2024</p>
 <dl>
-<dt>Vai trò</dt><dd>Co-researcher, phân tích case "Vũ Trụ Cò Anh" của Phương Mỹ Chi.</dd>
-<dt>Vấn đề</dt><dd>Tại sao MV V-Pop hiện đại pha folk Việt thành công, trong khi nhiều brand thử folk lại bị nhìn như "mượn".</dd>
-<dt>Quyết định</dt><dd>Đọc qua khung cultural capital của Bourdieu, identify mechanism của hybridity hợp lý.</dd>
+<dt>Vai trò</dt><dd>Co-researcher, phân tích case "Vũ Trụ Có Anh" của Phương Mỹ Chi.</dd>
+<dt>Vấn đề</dt><dd>Tại sao MV V-Pop hiện đại pha folk Việt thành công, trong khi nhiều brand thử folk lại bị chỉ trích lạm dụng văn hóa.</dd>
+<dt>Quyết định</dt><dd>Phân tích qua khung lý thuyết cultural capital của Bourdieu, identify mechanism của hybridity hợp lý.</dd>
 <dt>Output</dt><dd>Report.</dd>
 <dt>Kỹ năng</dt><dd>Tôi có thể identify cultural tension và turn nó thành content direction.</dd>
 </dl>
@@ -777,7 +819,7 @@
 <h3>MAGGI: Competitive &amp; Consumer Analysis</h3>
 <p class="proof-card__meta">RMIT COMM2649 · Researcher · 2025</p>
 <dl>
-<dt>Vai trò</dt><dd>Solo researcher, kéo dữ liệu từ Fanpage Karma, build chart.</dd>
+<dt>Vai trò</dt><dd>Solo researcher, kéo dữ liệu từ Fanpage Karma, BuzzSumo, Semrush, SimilarWeb, NVivo.</dd>
 <dt>Vấn đề</dt><dd>MAGGI và Barona cùng category nhưng audience react khác nhau.</dd>
 <dt>Quyết định</dt><dd>Identify keyword gap, MAGGI tập trung sản phẩm, Barona thu hút bằng trải nghiệm. Đề xuất chiến dịch dựa trên gap đó.</dd>
 <dt>Output</dt><dd>Report.</dd>
@@ -791,11 +833,11 @@
 </div>
 <div class="proof-card__body">
 <div class="proof-card__label">NGHIÊN CỨU VĂN HÓA &amp; EDITORIAL</div>
-<h3>Equal in Ao Dai (Gender Equality Magazine)</h3>
+<h3>Gender Equality Magazine</h3>
 <p class="proof-card__meta">Creative Director, Editorial Research · 2023</p>
 <dl>
 <dt>Vai trò</dt><dd>Creative Director.</dd>
-<dt>Vấn đề</dt><dd>Làm magazine bình đẳng giới không sa vào lecture mode.</dd>
+<dt>Vấn đề</dt><dd>Sử dụng format magazine để phản ánh các chủ đề xã hội hiện đại.</dd>
 <dt>Quyết định</dt><dd>Đặt áo dài làm visual anchor và đảo ngược chuẩn gender expression.</dd>
 <dt>Output</dt><dd>Concept deck, editorial spread, photo shoot.</dd>
 <dt>Kỹ năng</dt><dd>Editorial direction · Cultural concept translation thành visual.</dd>
@@ -810,7 +852,7 @@
 <p class="proof-card__meta">Research proposal · 2023</p>
 <dl>
 <dt>Vai trò</dt><dd>Solo research proposal.</dd>
-<dt>Vấn đề</dt><dd>Tại sao rap yêu nước (Đen Vâu, Suboi, Đạt Maniac) resonate với Gen Z hơn nhạc đỏ truyền thống.</dd>
+<dt>Vấn đề</dt><dd>Tại sao rap yêu nước (Mikelodic, Đen Vâu, Double2T) resonate với Gen Z, và so sánh khả năng ảnh hưởng của dòng nhạc này trong bối cảnh hiện đại với nhạc đỏ trong bối cảnh chiến tranh?</dd>
 <dt>Quyết định</dt><dd>Đề xuất framework "kế thừa chức năng" thay vì "kế thừa hình thức".</dd>
 <dt>Output</dt><dd>Research proposal.</dd>
 <dt>Kỹ năng</dt><dd>Decode generational shift trong cách tiếp nhận nội dung patriotic.</dd>
@@ -866,11 +908,11 @@
 <h3>Little Me, RMIT Mental Wellness Exhibition</h3>
 <p class="proof-card__meta">Project Lead, Founder · 2023 đến 2024</p>
 <dl>
-<dt>Vai trò</dt><dd>Trưởng ban tổ chức (27 người), founder.</dd>
-<dt>Vấn đề</dt><dd>Triển lãm sức khỏe tâm thần thường bị né tránh hoặc bị medical hóa.</dd>
-<dt>Quyết định</dt><dd>Format tương tác (visitor để lại note vô danh), không lecture, không infographic.</dd>
+<dt>Vai trò</dt><dd>Founder, Trưởng ban tổ chức.</dd>
+<dt>Vấn đề</dt><dd>Hơn 95% người trẻ mắc bệnh tâm lý rất e ngại tìm đến sự trợ giúp chuyên nghiệp của bác sĩ mà thường tự chuẩn đoán, tự làm theo các phương pháp healing trên mạng.</dd>
+<dt>Quyết định</dt><dd>Dùng format triển lãm để nâng cao nhận thức, lồng ghép các phương pháp trị liệu ít can thiệp, và rút ngắn khoảng cách của sinh viên với Phòng tham vấn tâm lý của trường.</dd>
 <dt>Output</dt><dd>316 lượt tham quan trong 3 ngày · 34,500+ tương tác social · 18M VND gọi vốn · 6,96% tỷ lệ quay lại.</dd>
-<dt>Kỹ năng</dt><dd>Live production · Vận hành 3 ngày liên tục · Team 27 người · Fundraising.</dd>
+<dt>Kỹ năng</dt><dd>Project management · Event Planner · Fundraising.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://drive.google.com/drive/folders/1FiBLLSjVYBPSGc2WvJgVemFod2fg4s49" rel="noopener noreferrer" target="_blank">Xem triển lãm →</a></div></div>
 </article>
@@ -904,7 +946,7 @@
 <dt>Vấn đề</dt><dd>7 sự kiện doanh nghiệp 50 đến 400 người, Director ngập trong prep work.</dd>
 <dt>Quyết định</dt><dd>Build SOP và checklist system, take over toàn bộ prep coordination.</dd>
 <dt>Output</dt><dd>7 sự kiện delivered · 270 người lữ hành điều phối tại Hà Nội · 60% giảm thời gian prep của Director · 6 hạng mục hậu cần on-time.</dd>
-<dt>Kỹ năng</dt><dd>Event logistics · Vendor coordination · SOP design.</dd>
+<dt>Kỹ năng</dt><dd>Event logistics · Vendor coordination · Backstage.</dd>
 </dl>
 <div class="proof-card__footer"><a class="link-arrow" href="https://sukienmienbac.vn/su-kien-mien-bac-event/" rel="noopener noreferrer" target="_blank">Xem công ty →</a></div></div>
 </article>
@@ -918,8 +960,8 @@
 <p class="proof-card__meta">Founder, Vice-president · 5/2024 đến 12/2024</p>
 <dl>
 <dt>Vai trò</dt><dd>Founder, VP, designer of org infrastructure.</dd>
-<dt>Vấn đề</dt><dd>Kết nối social enterprise giai đoạn đầu với hệ sinh thái SDGs Việt Nam mà không bị NGO-mode chậm.</dd>
-<dt>Quyết định</dt><dd>Build infrastructure cho seamless handover ngay từ đầu (6 phòng ban, 21 vai trò, 40+ SOPs).</dd>
+<dt>Vấn đề</dt><dd>Kết nối social enterprise giai đoạn đầu với hệ sinh thái SDGs Việt Nam và các quỹ doanh nghiệp hướng tới ESG.</dd>
+<dt>Quyết định</dt><dd>Build infrastructure cho seamless handover (6 phòng ban, 21 vai trò, 40+ SOPs).</dd>
 <dt>Output</dt><dd>Tổ chức 54 thành viên · Phased budget 2.59B VND · 4.65/5 peer eval score · Handover hoàn tất.</dd>
 <dt>Kỹ năng</dt><dd>Org design · Strategic planning · Cross-functional delivery.</dd>
 </dl>
@@ -931,7 +973,7 @@
 <!-- ============== ABOUT ============== -->
 
 <!-- ============== CONTACT ============== -->
-<section aria-labelledby="contact-title" class="section section--alt" id="contact">
+<section aria-labelledby="contact-title" class="section section--dark" id="contact">
 <div class="container">
 <div class="section-head reveal">
 <span class="eyebrow">LIÊN HỆ</span>
