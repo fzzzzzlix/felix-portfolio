@@ -885,3 +885,41 @@ a:hover { color: var(--color-crimson-deep); }
 
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* =========================================================
+   HOME-PAGE PALETTE — Burgundy + Ivory + Dusty Rose
+   Scoped to body.page-home so case-study pages keep gold.
+   ========================================================= */
+
+body.page-home {
+  /* Page surfaces → clean ivory */
+  --color-paper:        #F5EFEA;
+  --color-paper-deep:   #ece5df;
+  --color-paper-warm:   #faf6f2;
+
+  /* Dark backgrounds → deep burgundy */
+  --color-ink:          #1e1015;
+  --color-ink-2:        #2B0E16;
+  --color-ink-soft:     #3d2830;
+  --color-ink-muted:    #7a6068;
+
+  /* Accent: gold → dusty rose */
+  --color-gold:         #C89BA0;
+  --color-gold-deep:    #a07880;
+  --color-gold-pale:    #e4d4d7;
+  --color-gold-soft:    rgba(200, 155, 160, .08);
+
+  /* Rules get a blush tint */
+  --color-rule:         #d8cacb;
+  --color-rule-soft:    #e8dedf;
+}
+
+/* Fix hardcoded rgba gold values inside dark sections on home page */
+body.page-home .section--dark .contact-card {
+  border-color: rgba(200, 155, 160, .14);
+}
+
+body.page-home .section--dark .contact-card a {
+  border-bottom-color: rgba(200, 155, 160, .35);
+}
+}
